@@ -1,8 +1,8 @@
 ---
-name: "\U0001F6E0️ Refactor"
+name: Refactor
 about: 리팩토링 이슈입니다.
 title: "[ Refactor ]"
-labels: ''
+labels: "\U0001F528 Refactor"
 assignees: ''
 
 ---

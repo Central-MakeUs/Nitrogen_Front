@@ -1,8 +1,8 @@
 ---
-name: "\U0001F41E Bug"
+name: Bug
 about: 버그 이슈입니다.
 title: "[ Bug ]"
-labels: bug
+labels: "\U0001F41E BugFix"
 assignees: ''
 
 ---
