@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import EmotionRegistry from './components/EmotionRegistry';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -20,10 +21,12 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): React.ReactNode {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <EmotionRegistry>{children}</EmotionRegistry>
+      </body>
     </html>
   );
 }
