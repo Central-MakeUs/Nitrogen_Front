@@ -5,7 +5,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prettier": "prettier --cache --check \"**/*.{js,jsx,ts,tsx,json,md,yaml,yml}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yaml,yml}\"",
     "check-types": "turbo run check-types",
     "dev:web": "turbo dev --filter=web",
     "dev:mobile": "turbo dev --filter=mobile",
@@ -13,6 +14,7 @@
     "build:mobile": "turbo build --filter=mobile"
   },
   "devDependencies": {
+    "lefthook": "^2.0.13",
     "prettier": "^3.7.4",
     "turbo": "^2.7.2",
     "typescript": "5.9.2"
