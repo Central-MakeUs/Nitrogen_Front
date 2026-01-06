@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 
-interface ButtonProps {
+export interface ButtonProps {
   children: ReactNode;
   className?: string;
   appName: string;
