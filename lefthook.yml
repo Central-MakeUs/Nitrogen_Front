@@ -1,10 +1,11 @@
 pre-commit:
   parallel: true
   commands:
-    # Prettier check (캐시 사용으로 빠른 체크)
-    prettier:
+    # 자동 포맷팅 및 stage
+    format:
       glob: '*.{js,jsx,ts,tsx,json,md,yaml,yml}'
-      run: pnpm prettier {staged_files}
+      run: pnpm format {staged_files}
+      stage_fixed: true
 
     # 변경된 워크스페이스만 lint 실행
     lint:
@@ -33,12 +34,6 @@ pre-commit:
         if [ -n "$CHANGED" ]; then
           turbo run check-types --filter="$CHANGED"
         fi
-
-    # 자동 포맷팅 및 stage
-    format:
-      glob: '*.{js,jsx,ts,tsx,json,md,yaml,yml}'
-      run: pnpm format {staged_files}
-      stage_fixed: true
 
 # Commit message 검증
 commit-msg:
