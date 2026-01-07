@@ -8,14 +8,24 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    onClick: { action: 'clicked' },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    appName: 'Demo',
-    children: 'Click me',
+    children: 'Primary Button',
+    variant: 'primary',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: 'Secondary Button',
+    variant: 'secondary',
   },
 };

@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import { join, dirname } from 'path';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -23,6 +24,11 @@ const config: StorybookConfig = {
   docs: {},
   typescript: {
     check: false,
+  },
+  async viteFinal(config) {
+    config.plugins = config.plugins || [];
+    config.plugins.push(vanillaExtractPlugin());
+    return config;
   },
 };
 
