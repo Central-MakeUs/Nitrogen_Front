@@ -4,16 +4,13 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev --port 3000 --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "@repo/ui": "workspace:*",
     "next": "16.1.0",
     "react": "^19.2.0",
@@ -25,6 +22,7 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@vanilla-extract/next-plugin": "^2.4.8",
     "eslint": "^9.39.1",
     "typescript": "5.9.2"
   }
