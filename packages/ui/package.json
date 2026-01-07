@@ -8,18 +8,32 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@storybook/addon-essentials": "^8.5.2",
+    "@storybook/addon-interactions": "^8.5.2",
+    "@storybook/addon-links": "^8.5.2",
+    "@storybook/react": "^8.5.2",
+    "@storybook/react-vite": "^8.5.2",
+    "@storybook/test": "^8.5.2",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@vanilla-extract/vite-plugin": "^4.0.18",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.39.1",
-    "typescript": "5.9.2"
+    "storybook": "^8.5.2",
+    "typescript": "5.9.2",
+    "vite": "^6.0.7"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.16.2",
+    "@vanilla-extract/recipes": "^0.5.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }
