@@ -14,14 +14,14 @@ jobs:
       - name: 코드 체크아웃
         uses: actions/checkout@v4
 
+      - name: pnpm 설치
+        uses: pnpm/action-setup@v4
+
       - name: 노드 설치
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-
-      - name: pnpm 설치
-        uses: pnpm/action-setup@v4
 
       - name: 의존성 캐시
         uses: actions/cache@v4
