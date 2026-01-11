@@ -10,7 +10,8 @@
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_TOKEN"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -26,6 +27,7 @@
     "@types/react-dom": "19.2.2",
     "@vanilla-extract/vite-plugin": "^4.0.18",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^13.3.5",
     "eslint": "^9.39.1",
     "storybook": "^8.5.2",
     "typescript": "5.9.2",
