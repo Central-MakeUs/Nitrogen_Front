@@ -1,10 +1,9 @@
 'use client';
 
-import React, { ReactNode, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { button } from './button.css';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
-  children: ReactNode;
   variant?: 'primary' | 'secondary' | 'brand';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
@@ -17,15 +16,15 @@ export const Button = ({
   size = 'md',
   disabled = false,
   type = 'button',
-  ...rest
-}: ButtonProps): React.JSX.Element => {
+  ...props
+}: PropsWithChildren<ButtonProps>): React.JSX.Element => {
   return (
     <button
       className={button({ variant, size, disabled })}
       onClick={onClick}
       disabled={disabled}
       type={type}
-      {...rest}>
+      {...props}>
       {children}
     </button>
   );
