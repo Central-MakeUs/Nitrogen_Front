@@ -6,7 +6,7 @@ on:
       - main
       - develop
     paths:
-      - 'packages/ui/**'
+      - 'apps/web/**'
 
 jobs:
   chromatic-deploy:
@@ -35,7 +35,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          workingDir: packages/ui
+          workingDir: apps/web
           buildScriptName: build-storybook
           onlyChanged: true
           exitZeroOnChanges: true

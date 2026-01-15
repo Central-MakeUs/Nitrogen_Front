@@ -12,8 +12,8 @@
     "dev:mobile": "turbo dev --filter=mobile",
     "build:web": "turbo build --filter=web",
     "build:mobile": "turbo build --filter=mobile",
-    "storybook": "pnpm --filter=@repo/ui storybook",
-    "build-storybook": "pnpm --filter=@repo/ui build-storybook"
+    "storybook": "pnpm --filter=web storybook",
+    "build-storybook": "pnpm --filter=web build-storybook"
   },
   "devDependencies": {
     "lefthook": "^2.0.13",

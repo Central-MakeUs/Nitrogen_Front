@@ -3,13 +3,9 @@ import localFont from 'next/font/local';
 import { Providers } from '@/providers/Providers';
 import '@/shared/styles/global.css';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
+const suit = localFont({
+  src: '../public/fonts/SUIT-Variable.woff2',
+  variable: '--font-suit',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +20,7 @@ export default function RootLayout({
 }>): React.ReactNode {
   return (
     <html lang='ko'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={suit.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
