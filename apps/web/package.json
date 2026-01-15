@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@repo/design-tokens": "workspace:*",
     "@tanstack/react-query": "^5.90.16",
     "@vanilla-extract/css": "^1.18.0",
     "ky": "^1.14.2",
