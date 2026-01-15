@@ -112,14 +112,6 @@ export const SecondaryLarge: Story = {
   },
 };
 
-export const SecondaryDisabled: Story = {
-  args: {
-    children: 'Button',
-    variant: 'secondary',
-    disabled: true,
-  },
-};
-
 export const Brand: Story = {
   args: {
     children: 'Button',
@@ -139,21 +131,6 @@ export const BrandLarge: Story = {
     children: 'Button',
     variant: 'brand',
     size: 'lg',
-  },
-};
-
-export const BrandDisabled: Story = {
-  args: {
-    children: 'Button',
-    variant: 'brand',
-    disabled: true,
-  },
-};
-
-export const Small: Story = {
-  args: {
-    children: 'Small Button',
-    size: 'sm',
   },
 };
 
@@ -188,9 +165,6 @@ export const AllVariants: Story = {
           <Button variant='primary' size='lg'>
             Button
           </Button>
-          <Button variant='primary' size='md' disabled>
-            Button
-          </Button>
         </div>
       </div>
 
@@ -203,9 +177,6 @@ export const AllVariants: Story = {
             Button
           </Button>
           <Button variant='secondary' size='lg'>
-            Button
-          </Button>
-          <Button variant='secondary' size='md' disabled>
             Button
           </Button>
         </div>
@@ -222,7 +193,18 @@ export const AllVariants: Story = {
           <Button variant='brand' size='lg'>
             Button
           </Button>
-          <Button variant='brand' size='md' disabled>
+        </div>
+      </div>
+
+      <div>
+        <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+          Disabled
+        </h3>
+        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <Button variant='primary' size='md' disabled>
+            Button
+          </Button>
+          <Button variant='primary' size='lg' disabled>
             Button
           </Button>
         </div>
@@ -237,9 +219,6 @@ export const SizeComparison: Story = {
   },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <Button variant='primary' size='sm'>
-        Small
-      </Button>
       <Button variant='primary' size='md'>
         Medium
       </Button>

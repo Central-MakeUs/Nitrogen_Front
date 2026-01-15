@@ -42,7 +42,7 @@ export const lineHeight = {
 
 export const letterSpacing = {
   none: '0',
-  tight: '-0.01em',
+  tight: '-0.01rem',
 } as const;
 
 export const typography = {

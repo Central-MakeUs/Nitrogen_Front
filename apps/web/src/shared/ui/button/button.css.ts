@@ -1,15 +1,5 @@
 import { recipe } from '@vanilla-extract/recipes';
-import {
-  vars,
-  buttonTokens,
-  spacing,
-  lineWidth,
-  fontWeight,
-  fontSize,
-  lineHeight,
-} from '../theme.css';
-
-const LETTER_SPACING_TIGHT = '-0.01em';
+import { vars, buttonTokens, spacing, lineWidth, typography } from '../theme.css';
 
 const buttonSizes = {
   sm: {
@@ -38,8 +28,6 @@ export const button = recipe({
     gap: buttonTokens.spacing.gap,
     borderRadius: buttonTokens.radius.default,
     border: 'none',
-    fontFamily: vars.font.family.suit,
-    letterSpacing: LETTER_SPACING_TIGHT,
     cursor: 'pointer',
     transition:
       'background-color 0.15s ease-out, border-color 0.15s ease-out, transform 0.1s ease-out',
@@ -89,23 +77,17 @@ export const button = recipe({
       sm: {
         height: buttonSizes.sm.height,
         padding: `${buttonSizes.sm.paddingY} ${buttonSizes.sm.paddingX}`,
-        fontSize: fontSize.b2,
-        fontWeight: fontWeight.semibold,
-        lineHeight: lineHeight.h1,
+        ...typography.head.h1,
       },
       md: {
         height: buttonSizes.md.height,
         padding: `${buttonSizes.md.paddingY} ${buttonSizes.md.paddingX}`,
-        fontSize: fontSize.h2,
-        fontWeight: fontWeight.semibold,
-        lineHeight: lineHeight.h2,
+        ...typography.head.h2,
       },
       lg: {
         height: buttonSizes.lg.height,
         padding: `${buttonSizes.lg.paddingY} ${buttonSizes.lg.paddingX}`,
-        fontSize: fontSize.h4,
-        fontWeight: fontWeight.bold,
-        lineHeight: lineHeight.h4,
+        ...typography.head.h4,
       },
     },
     disabled: {

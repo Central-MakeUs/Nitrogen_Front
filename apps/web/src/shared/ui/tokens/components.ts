@@ -45,7 +45,7 @@ export const buttonTokens = {
       active: semanticColors.border.strong,
       success: semanticColors.border.brand,
       danger: semanticColors.border.danger,
-      brand: primitiveColors.primary[500],
+      brand: semanticColors.text.brand,
     },
     icon: {
       primary: {
