@@ -25,8 +25,6 @@ export interface TextProps extends HTMLAttributes<HTMLElement> {
   as?: AsElement;
   color?: string;
   align?: React.CSSProperties['textAlign'];
-  ellipsis?: number;
-  noWrap?: boolean;
   className?: string;
 }
 
