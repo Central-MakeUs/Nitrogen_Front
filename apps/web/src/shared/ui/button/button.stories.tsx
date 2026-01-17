@@ -26,7 +26,7 @@ const meta: Meta<typeof Button> = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: '버튼의 크기 (md: 48px, lg: 54px)',
+      description: '버튼의 크기',
       table: {
         defaultValue: { summary: 'md' },
       },
@@ -59,6 +59,14 @@ export const Primary: Story = {
       type: 'figma',
       url: getFigmaUrl('23-53'),
     },
+  },
+};
+
+export const PrimarySmall: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    size: 'sm',
   },
 };
 
@@ -104,6 +112,14 @@ export const Secondary: Story = {
   },
 };
 
+export const SecondarySmall: Story = {
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+    size: 'sm',
+  },
+};
+
 export const SecondaryLarge: Story = {
   args: {
     children: 'Button',
@@ -126,11 +142,32 @@ export const Brand: Story = {
   },
 };
 
+export const BrandSmall: Story = {
+  args: {
+    children: 'Button',
+    variant: 'brand',
+    size: 'sm',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: getFigmaUrl('751-3427'),
+    },
+  },
+};
+
 export const BrandLarge: Story = {
   args: {
     children: 'Button',
     variant: 'brand',
     size: 'lg',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    children: 'Small Button',
+    size: 'sm',
   },
 };
 
@@ -159,6 +196,9 @@ export const AllVariants: Story = {
           Primary
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <Button variant='primary' size='sm'>
+            Button
+          </Button>
           <Button variant='primary' size='md'>
             Button
           </Button>
@@ -173,6 +213,9 @@ export const AllVariants: Story = {
           Secondary
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <Button variant='secondary' size='sm'>
+            Button
+          </Button>
           <Button variant='secondary' size='md'>
             Button
           </Button>
@@ -187,6 +230,9 @@ export const AllVariants: Story = {
           Brand
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <Button variant='brand' size='sm'>
+            Button
+          </Button>
           <Button variant='brand' size='md'>
             Button
           </Button>
@@ -201,6 +247,9 @@ export const AllVariants: Story = {
           Disabled
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <Button variant='primary' size='sm' disabled>
+            Button
+          </Button>
           <Button variant='primary' size='md' disabled>
             Button
           </Button>
@@ -219,6 +268,9 @@ export const SizeComparison: Story = {
   },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <Button variant='primary' size='sm'>
+        Small
+      </Button>
       <Button variant='primary' size='md'>
         Medium
       </Button>

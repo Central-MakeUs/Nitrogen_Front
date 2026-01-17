@@ -3,9 +3,8 @@ import { vars, buttonTokens, spacing, lineWidth, typography } from '../theme.css
 
 const buttonSizes = {
   sm: {
-    height: '2.5rem',
-    paddingY: spacing.sm,
-    paddingX: spacing.md,
+    paddingY: spacing.md,
+    paddingX: spacing['2xl'],
   },
   md: {
     height: '3rem',
@@ -46,9 +45,11 @@ export const button = recipe({
         color: buttonTokens.color.text.onBrand,
         ':hover': {
           backgroundColor: buttonTokens.color.bg.primary.hover,
+          color: buttonTokens.color.text.primary.hover,
         },
         ':active': {
           backgroundColor: buttonTokens.color.bg.primary.active,
+          color: buttonTokens.color.text.primary.active,
         },
       },
       secondary: {
@@ -75,9 +76,8 @@ export const button = recipe({
     },
     size: {
       sm: {
-        height: buttonSizes.sm.height,
         padding: `${buttonSizes.sm.paddingY} ${buttonSizes.sm.paddingX}`,
-        ...typography.head.h1,
+        ...typography.head.h2,
       },
       md: {
         height: buttonSizes.md.height,
