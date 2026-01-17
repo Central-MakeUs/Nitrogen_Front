@@ -1,5 +1,3 @@
-'use client';
-
 import React, { PropsWithChildren, HTMLAttributes } from 'react';
 import * as styles from './Text.css';
 
@@ -26,13 +24,17 @@ export interface TextProps extends HTMLAttributes<HTMLElement> {
   variant?: TypographyVariant;
   as?: AsElement;
   color?: string;
+  align?: React.CSSProperties['textAlign'];
+  ellipsis?: number;
+  noWrap?: boolean;
   className?: string;
 }
 
 export const Text = ({
   variant = 'b3',
-  as: Component = 'span',
+  as: Component = 'p',
   color,
+  align,
   className,
   style,
   children,
@@ -41,7 +43,7 @@ export const Text = ({
   return (
     <Component
       className={`${styles.text({ variant })} ${className || ''}`}
-      style={{ color, ...style }}
+      style={{ color, textAlign: align, ...style }}
       {...props}>
       {children}
     </Component>

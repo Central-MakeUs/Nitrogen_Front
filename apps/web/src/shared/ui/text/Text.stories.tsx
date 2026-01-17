@@ -21,8 +21,8 @@ const meta = {
           '## 사용 예시',
           '```tsx',
           '<Text variant="t4" as="h1">Title 4</Text>',
-          '<Text variant="b3" color={vars.color.text.brand}>',
-          '<Text variant="b3">Body 3</Text>',
+          '<Text variant="b3" color={vars.color.text.brand}>Brand Text</Text>',
+          '<Text variant="b3" align="center">Centered Text</Text>',
           '```',
         ].join('\n'),
       },
@@ -64,7 +64,7 @@ const meta = {
       description: 'HTML 엘리먼트 타입',
       table: {
         type: { summary: 'AsElement' },
-        defaultValue: { summary: 'span' },
+        defaultValue: { summary: 'p' },
       },
     },
     color: {
@@ -72,6 +72,14 @@ const meta = {
       description: '텍스트 색상',
       table: {
         type: { summary: 'string' },
+      },
+    },
+    align: {
+      control: 'select',
+      options: ['left', 'center', 'right'],
+      description: '텍스트 정렬',
+      table: {
+        type: { summary: 'React.CSSProperties["textAlign"]' },
       },
     },
     children: {
@@ -210,6 +218,29 @@ export const AsElements: Story = {
       <Text variant='b1' as='span'>
         span 엘리먼트로 렌더링 Body 1
       </Text>
+    </div>
+  ),
+};
+
+export const TextAlignment: Story = {
+  name: '텍스트 정렬',
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ border: '1px solid #e0e0e0', padding: '16px' }}>
+        <Text variant='b3' align='left'>
+          왼쪽 정렬
+        </Text>
+      </div>
+      <div style={{ border: '1px solid #e0e0e0', padding: '16px' }}>
+        <Text variant='b3' align='center'>
+          가운데 정렬
+        </Text>
+      </div>
+      <div style={{ border: '1px solid #e0e0e0', padding: '16px' }}>
+        <Text variant='b3' align='right'>
+          오른쪽 정렬
+        </Text>
+      </div>
     </div>
   ),
 };
