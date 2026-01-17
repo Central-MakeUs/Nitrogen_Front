@@ -92,11 +92,12 @@ export const primitiveColors = {
     white: '#ffffff',
     black: '#000000',
     overlay: 'rgba(0, 0, 0, 0.6)',
-  },
-  shadow: {
-    shadow1: 'rgba(0, 0, 0, 0.05)',
-    shadow2: 'rgba(0, 0, 0, 0.04)',
-    shadow3: 'rgba(0, 0, 0, 0.12)',
+    shadow: {
+      shadow1: 'rgba(0, 0, 0, 0.04)',
+      shadow2: 'rgba(0, 0, 0, 0.05)',
+      shadow3: 'rgba(0, 0, 0, 0.08)',
+      shadow4: 'rgba(0, 0, 0, 0.12)',
+    },
   },
 } as const;
 
