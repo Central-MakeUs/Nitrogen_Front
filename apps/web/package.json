@@ -26,7 +26,9 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@storybook/addon-a11y": "10.2.0-alpha.14",
     "@storybook/addon-designs": "^11.1.1",
+    "@storybook/addon-docs": "10.2.0-alpha.14",
     "@storybook/addon-essentials": "9.0.0-alpha.12",
     "@storybook/addon-links": "10.2.0-alpha.14",
     "@storybook/nextjs": "10.2.0-alpha.14",

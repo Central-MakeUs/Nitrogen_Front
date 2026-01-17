@@ -9,7 +9,13 @@ const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-designs'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-links',
+    '@storybook/addon-designs',
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
+  ],
   framework: {
     name: '@storybook/nextjs',
     options: {},

@@ -91,7 +91,7 @@ export const semanticColors = {
     },
   },
   indicator: {
-    default: primitiveColors.gray[300],
+    default: primitiveColors.gray[100],
     active: primitiveColors.primary[500],
     success: primitiveColors.green[200],
     disable: primitiveColors.gray[200],
