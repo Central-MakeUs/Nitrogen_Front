@@ -61,7 +61,7 @@ export const item = style({
   selectors: {
     '&:disabled': {
       cursor: 'not-allowed',
-      opacity: 0.5,
+      color: vars.color.icon.disabled,
     },
   },
 });
@@ -82,7 +82,7 @@ export const icon = recipe({
         filter: 'none',
       },
       false: {
-        filter: 'opacity(0.5)',
+        color: vars.color.icon.disabled,
       },
     },
   },
