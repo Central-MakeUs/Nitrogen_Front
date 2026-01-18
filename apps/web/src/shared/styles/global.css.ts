@@ -8,7 +8,8 @@ globalStyle('*', {
   fontFamily: 'var(--font-suit), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 });
 
-globalStyle('html, body', {
+globalStyle('html', {
+  fontSize: '62.5%',
   maxWidth: '100vw',
   overflowX: 'hidden',
 });

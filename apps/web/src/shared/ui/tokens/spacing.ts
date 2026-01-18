@@ -18,25 +18,27 @@ export const primitiveNumbers = {
 } as const;
 
 export const spacing = {
-  xs: '0.25rem',
-  xs2: '0.375rem',
-  sm: '0.5rem',
-  sm2: '0.625rem',
-  md: '0.75rem',
-  lg: '0.875rem',
-  xl: '1.125rem',
-  '2xl': '1.25rem',
+  xs: '0.4rem',
+  xs2: '0.6rem',
+  sm: '0.8rem',
+  sm2: '1rem',
+  md: '1.2rem',
+  lg: '1.4rem',
+  xl: '1.8rem',
+  '2xl': '2rem',
 } as const;
 
 export const radius = {
   xs: '2px',
   xs2: '3px',
   sm: '4px',
-  sm2: '6px',
+  sm2: '5px',
   md: '8px',
   lg: '10px',
   lg2: '12px',
   xl: '14px',
+  xxl: '16px',
+  xxxl: '18px',
   full: '999px',
 } as const;
 
