@@ -9,13 +9,19 @@ export const container = style({
 });
 
 export const leftSection = style({
+  display: 'flex',
   justifySelf: 'start',
+  alignItems: 'center',
 });
 
 export const centerSection = style({
+  display: 'flex',
   justifySelf: 'center',
+  alignItems: 'center',
 });
 
 export const rightSection = style({
+  display: 'flex',
   justifySelf: 'end',
+  alignItems: 'center',
 });
