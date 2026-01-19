@@ -59,7 +59,7 @@ export const semanticColors = {
     },
     surface: {
       primary: {
-        default: primitiveColors.gray[800],
+        default: primitiveColors.gray[0],
         hover: primitiveColors.gray[900],
         active: primitiveColors.gray[950],
       },
