@@ -214,6 +214,9 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
+      webpack:
+        specifier: ^5.104.1
+        version: 5.104.1(esbuild@0.27.2)
 
   packages/design-tokens:
     devDependencies:
