@@ -1,9 +1,8 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/nextjs';
 import { TopBar } from './TopBar';
 import { getFigmaUrl } from '@/shared/config/figma';
-import IcLeftChevron from '@/assets/icons/IcLeftChevron';
 import { Text, vars } from '@/shared/ui';
-import { IcBell, IcMenu } from '@/assets/icons';
+import { IcLeftChevron, IcBell, IcMenu } from '@/assets/icons';
 
 const withMobileLayout: Decorator = (Story) => (
   <div
