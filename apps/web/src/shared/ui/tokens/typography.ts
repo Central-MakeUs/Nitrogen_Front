@@ -85,19 +85,19 @@ export const typography = {
   head: {
     h5: {
       fontSize: '2rem',
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 'normal',
       letterSpacing: '-0.01rem',
     },
     h4: {
       fontSize: '1.8rem',
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 'normal',
       letterSpacing: '-0.01rem',
     },
     h3: {
       fontSize: '1.6rem',
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 'normal',
       letterSpacing: '-0.01rem',
     },
@@ -117,13 +117,13 @@ export const typography = {
   body: {
     b5: {
       fontSize: '1.8rem',
-      fontWeight: 600,
+      fontWeight: 500,
       lineHeight: 'normal',
       letterSpacing: '-0.01rem',
     },
     b4: {
       fontSize: '1.6rem',
-      fontWeight: 600,
+      fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.01rem',
     },
