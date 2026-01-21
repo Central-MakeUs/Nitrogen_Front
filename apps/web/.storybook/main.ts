@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'path';
 import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
+import type { RuleSetRule } from 'webpack';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,6 +36,23 @@ const config: StorybookConfig = {
       '@/features': path.resolve(__dirname, '../src/features'),
       '@/widgets': path.resolve(__dirname, '../src/widgets'),
     };
+
+    const imageRule = config.module?.rules?.find((rule) => {
+      const test = (rule as RuleSetRule)?.test;
+      if (!test) {
+        return false;
+      }
+      return test instanceof RegExp && test.test('.svg');
+    }) as RuleSetRule;
+
+    if (imageRule) {
+      imageRule.exclude = /\.svg$/;
+    }
+
+    config.module?.rules?.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
 
     return config;
   },
