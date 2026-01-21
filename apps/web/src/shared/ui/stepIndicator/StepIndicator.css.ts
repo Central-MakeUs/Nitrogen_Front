@@ -12,7 +12,7 @@ export const stepIndicatorContainer = style({
 
 export const stepIndicatorItem = recipe({
   base: {
-    height: '4px',
+    height: '0.4rem',
     flex: 1,
     borderRadius: '1px',
   },
