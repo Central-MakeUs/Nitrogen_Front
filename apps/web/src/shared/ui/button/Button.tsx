@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
-import { button } from './button.css';
+import { button } from './Button.css';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
   variant?: 'primary' | 'secondary' | 'brand';
