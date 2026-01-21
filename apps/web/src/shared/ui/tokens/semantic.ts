@@ -5,10 +5,11 @@ export const semanticColors = {
     primary: primitiveColors.gray[800],
     secondary: primitiveColors.gray[500],
     tertiary: primitiveColors.gray[300],
-    disabled: primitiveColors.gray[200],
+    disabled: primitiveColors.gray[400],
     brand: primitiveColors.primary[500],
     onBrand: primitiveColors.gray[0],
     onDisabled: primitiveColors.gray[400],
+    subtle: primitiveColors.gray[300],
     status: {
       success: primitiveColors.green[300],
       warning: primitiveColors.yellow[400],
@@ -31,13 +32,16 @@ export const semanticColors = {
   },
   border: {
     danger: primitiveColors.red[500],
+    success: primitiveColors.green[300],
     brand: primitiveColors.green[300],
     default: primitiveColors.gray[200],
     strong: primitiveColors.gray[800],
+    secondary: primitiveColors.gray[0],
   },
   icon: {
     primary: primitiveColors.gray[0],
     secondary: primitiveColors.gray[800],
+    tertiary: primitiveColors.gray[500],
     subtle: primitiveColors.gray[300],
     brand: primitiveColors.primary[500],
     onBrand: primitiveColors.gray[0],
@@ -50,18 +54,23 @@ export const semanticColors = {
       default: primitiveColors.primary[500],
       hover: primitiveColors.primary[600],
       active: primitiveColors.primary[700],
-      subtle: primitiveColors.primary[100],
+      subtle: primitiveColors.primary[50],
     },
     neutral: {
+      primary: primitiveColors.gray[100],
+      secondary: primitiveColors.gray[200],
+      tertiary: primitiveColors.gray[300],
+      subtle: primitiveColors.gray[75],
       default: primitiveColors.gray[100],
       hover: primitiveColors.gray[200],
       active: primitiveColors.gray[300],
     },
     surface: {
       primary: {
-        default: primitiveColors.gray[0],
+        default: primitiveColors.gray[800],
         hover: primitiveColors.gray[900],
         active: primitiveColors.gray[950],
+        subtle: primitiveColors.gray[700],
       },
       secondary: {
         default: primitiveColors.gray[0],
@@ -80,7 +89,7 @@ export const semanticColors = {
         subtle: primitiveColors.green[100],
       },
       yellow: {
-        default: primitiveColors.yellow[200],
+        default: primitiveColors.yellow[300],
         subtle: primitiveColors.yellow[50],
       },
     },
@@ -91,10 +100,10 @@ export const semanticColors = {
     },
   },
   indicator: {
-    default: primitiveColors.gray[100],
+    default: primitiveColors.gray[300],
     active: primitiveColors.primary[500],
     success: primitiveColors.green[200],
-    disable: primitiveColors.gray[200],
+    disable: primitiveColors.gray[100],
   },
 } as const;
 
