@@ -1,18 +1,14 @@
 import { recipe } from '@vanilla-extract/recipes';
-import { vars, buttonTokens, spacing, lineWidth, typography } from '../theme.css';
+import { vars, spacing, typography } from '../theme.css';
 
 const buttonSizes = {
-  sm: {
-    paddingY: spacing.md,
-    paddingX: spacing['2xl'],
-  },
   md: {
-    height: '3rem',
+    height: '48px',
     paddingY: spacing.md,
     paddingX: spacing['2xl'],
   },
   lg: {
-    height: '3.375rem',
+    height: '54px',
     paddingY: spacing.md,
     paddingX: spacing['2xl'],
   },
@@ -24,8 +20,8 @@ export const button = recipe({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: buttonTokens.spacing.gap,
-    borderRadius: buttonTokens.radius.default,
+    gap: spacing.sm2,
+    borderRadius: vars.radius.sm,
     border: 'none',
     cursor: 'pointer',
     transition:
@@ -41,44 +37,39 @@ export const button = recipe({
   variants: {
     variant: {
       primary: {
-        backgroundColor: buttonTokens.color.bg.primary.default,
-        color: buttonTokens.color.text.onBrand,
+        backgroundColor: vars.color.bg.surface.primary.default,
+        color: vars.color.text.onBrand,
         ':hover': {
-          backgroundColor: buttonTokens.color.bg.primary.hover,
-          color: buttonTokens.color.text.primary.hover,
+          backgroundColor: vars.color.bg.surface.primary.hover,
+          color: vars.color.text.tertiary,
         },
         ':active': {
-          backgroundColor: buttonTokens.color.bg.primary.active,
-          color: buttonTokens.color.text.primary.active,
+          backgroundColor: vars.color.bg.surface.primary.active,
+          color: vars.color.text.tertiary,
         },
       },
       secondary: {
-        backgroundColor: buttonTokens.color.bg.secondary.default,
-        color: buttonTokens.color.text.secondary.default,
-        border: `${lineWidth.sm} solid ${buttonTokens.color.border.default}`,
+        backgroundColor: vars.color.bg.neutral.default,
+        color: vars.color.text.secondary,
         ':hover': {
-          backgroundColor: buttonTokens.color.bg.secondary.hover,
+          backgroundColor: vars.color.bg.neutral.hover,
         },
         ':active': {
-          backgroundColor: buttonTokens.color.bg.secondary.active,
+          backgroundColor: vars.color.bg.neutral.active,
         },
       },
       brand: {
-        backgroundColor: buttonTokens.color.bg.brand.default,
-        color: buttonTokens.color.text.onBrand,
+        backgroundColor: vars.color.bg.brand.default,
+        color: vars.color.text.onBrand,
         ':hover': {
-          backgroundColor: buttonTokens.color.bg.brand.hover,
+          backgroundColor: vars.color.bg.brand.hover,
         },
         ':active': {
-          backgroundColor: buttonTokens.color.bg.brand.active,
+          backgroundColor: vars.color.bg.brand.active,
         },
       },
     },
     size: {
-      sm: {
-        padding: `${buttonSizes.sm.paddingY} ${buttonSizes.sm.paddingX}`,
-        ...typography.head.h2,
-      },
       md: {
         height: buttonSizes.md.height,
         padding: `${buttonSizes.md.paddingY} ${buttonSizes.md.paddingX}`,
@@ -87,34 +78,30 @@ export const button = recipe({
       lg: {
         height: buttonSizes.lg.height,
         padding: `${buttonSizes.lg.paddingY} ${buttonSizes.lg.paddingX}`,
-        ...typography.head.h4,
+        fontSize: '2rem',
+        fontWeight: 700,
+        lineHeight: 'normal',
+        letterSpacing: '-0.01rem',
       },
     },
     disabled: {
       true: {
-        backgroundColor: buttonTokens.color.bg.disable,
-        color: buttonTokens.color.text.disabled,
+        backgroundColor: vars.color.bg.disable,
+        color: vars.color.text.onDisabled,
         cursor: 'not-allowed',
         pointerEvents: 'none' as const,
         transform: 'none',
         ':hover': {
-          backgroundColor: buttonTokens.color.bg.disable,
+          backgroundColor: vars.color.bg.disable,
         },
         ':active': {
-          backgroundColor: buttonTokens.color.bg.disable,
+          backgroundColor: vars.color.bg.disable,
           transform: 'none',
         },
       },
     },
   },
-  compoundVariants: [
-    {
-      variants: { variant: 'secondary', disabled: true },
-      style: {
-        border: `${lineWidth.sm} solid ${buttonTokens.color.border.default}`,
-      },
-    },
-  ],
+  compoundVariants: [],
   defaultVariants: {
     variant: 'primary',
     size: 'md',

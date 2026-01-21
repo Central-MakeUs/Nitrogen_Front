@@ -5,7 +5,7 @@ import { button } from './button.css';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
   variant?: 'primary' | 'secondary' | 'brand';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'md' | 'lg';
   disabled?: boolean;
 }
 

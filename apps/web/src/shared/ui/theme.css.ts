@@ -178,18 +178,3 @@ export {
 
 // Export typography styles for use in components
 export { typography } from './tokens';
-
-// Export component tokens
-export {
-  buttonTokens,
-  badgeTokens,
-  inputTokens,
-  cardTokens,
-  calendarTokens,
-  toggleTokens,
-  topbarTokens,
-  totalBarTokens,
-  navigationTokens,
-  pickerTokens,
-  chipsTokens,
-} from './tokens';
