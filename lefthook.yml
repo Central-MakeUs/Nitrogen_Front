@@ -14,11 +14,11 @@ pre-commit:
           | grep -E '^(apps|packages)/' \
           | cut -d/ -f1,2 \
           | sort -u \
-          | sed 's#^#./#' \
-          | paste -sd "," -)
+          | sed 's#^#./#' )
 
         if [ -n "$CHANGED" ]; then
-          turbo run lint --filter="$CHANGED"
+          FILTER_ARGS=$(printf '%s\n' "$CHANGED" | sed 's/^/--filter=/' | paste -sd " " -)
+          turbo run lint $FILTER_ARGS
         fi
 
     # 변경된 워크스페이스만 타입 체크
@@ -28,11 +28,11 @@ pre-commit:
           | grep -E '^(apps|packages)/' \
           | cut -d/ -f1,2 \
           | sort -u \
-          | sed 's#^#./#' \
-          | paste -sd "," -)
+          | sed 's#^#./#' )
 
         if [ -n "$CHANGED" ]; then
-          turbo run check-types --filter="$CHANGED"
+          FILTER_ARGS=$(printf '%s\n' "$CHANGED" | sed 's/^/--filter=/' | paste -sd " " -)
+          turbo run check-types $FILTER_ARGS
         fi
 
 # Commit message 검증
