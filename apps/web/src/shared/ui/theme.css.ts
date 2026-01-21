@@ -51,6 +51,7 @@ export const vars = createGlobalTheme(':root', {
     bg: {
       base: semanticColors.bg.base,
       none: semanticColors.bg.none,
+      overlay: semanticColors.bg.overlay,
       disable: semanticColors.bg.disable,
       brand: {
         default: semanticColors.bg.brand.default,

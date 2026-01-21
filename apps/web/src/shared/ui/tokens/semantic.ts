@@ -50,6 +50,7 @@ export const semanticColors = {
   bg: {
     base: primitiveColors.gray[50],
     none: 'transparent',
+    overlay: primitiveColors.static.overlay,
     brand: {
       default: primitiveColors.primary[500],
       hover: primitiveColors.primary[600],
