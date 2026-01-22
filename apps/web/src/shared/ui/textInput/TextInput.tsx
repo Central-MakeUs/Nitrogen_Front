@@ -7,6 +7,7 @@ import { vars } from '../theme.css';
 import { Text } from '../text';
 import { useCombinedRefs } from '@/shared/hooks/useCombinedRefs';
 import { getTextWidth } from '@/shared/utils/getTextWidth';
+import { normalizeNumberValue } from '@/shared/utils/inputFormatters';
 
 type TextInputState = 'disabled' | 'default' | 'active' | 'error';
 type TextInputType = 'text' | 'number';
@@ -93,13 +94,6 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
 
     // refs 합치기
     const combinedRef = useCombinedRefs(inputRef, forwardedRef) as React.Ref<HTMLInputElement>;
-
-    // 숫자 타입일 때 앞자리 0 제거
-    const normalizeNumberValue = (val: string): string => {
-      if (fieldType !== 'number' || val === '') return val;
-      const normalized = val.replace(/^0+/, '') || '0';
-      return normalized;
-    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let newValue = e.target.value;
