@@ -51,6 +51,7 @@ export const vars = createGlobalTheme(':root', {
     bg: {
       base: semanticColors.bg.base,
       none: semanticColors.bg.none,
+      overlay: semanticColors.bg.overlay,
       disable: semanticColors.bg.disable,
       brand: {
         default: semanticColors.bg.brand.default,
@@ -178,18 +179,3 @@ export {
 
 // Export typography styles for use in components
 export { typography } from './tokens';
-
-// Export component tokens
-export {
-  buttonTokens,
-  badgeTokens,
-  inputTokens,
-  cardTokens,
-  calendarTokens,
-  toggleTokens,
-  topbarTokens,
-  totalBarTokens,
-  navigationTokens,
-  pickerTokens,
-  chipsTokens,
-} from './tokens';
