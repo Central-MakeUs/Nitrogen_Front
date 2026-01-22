@@ -146,6 +146,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
               {...restProps}
               ref={combinedRef}
               type={fieldType === 'number' ? 'number' : 'text'}
+              inputMode={fieldType === 'number' ? 'numeric' : undefined}
               value={currentValue}
               onChange={handleChange}
               onFocus={handleFocus}
