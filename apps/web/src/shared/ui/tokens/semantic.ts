@@ -31,11 +31,11 @@ export const semanticColors = {
     },
   },
   border: {
-    danger: primitiveColors.red[500],
+    error: primitiveColors.red[500],
     success: primitiveColors.green[300],
     brand: primitiveColors.green[300],
     default: primitiveColors.gray[200],
-    strong: primitiveColors.gray[800],
+    active: primitiveColors.gray[800],
     secondary: primitiveColors.gray[0],
   },
   icon: {

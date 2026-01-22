@@ -35,10 +35,10 @@ export const vars = createGlobalTheme(':root', {
       onDisabled: semanticColors.text.onDisabled,
     },
     border: {
-      danger: semanticColors.border.danger,
+      error: semanticColors.border.error,
       brand: semanticColors.border.brand,
       default: semanticColors.border.default,
-      strong: semanticColors.border.strong,
+      active: semanticColors.border.active,
     },
     icon: {
       primary: semanticColors.icon.primary,
@@ -63,6 +63,10 @@ export const vars = createGlobalTheme(':root', {
         default: semanticColors.bg.neutral.default,
         hover: semanticColors.bg.neutral.hover,
         active: semanticColors.bg.neutral.active,
+        primary: semanticColors.bg.neutral.primary,
+        secondary: semanticColors.bg.neutral.secondary,
+        tertiary: semanticColors.bg.neutral.tertiary,
+        subtle: semanticColors.bg.neutral.subtle,
       },
       surface: {
         primary: {

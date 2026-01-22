@@ -3,7 +3,7 @@ import { AlertDialog } from './AlertDialog';
 import { useAlertDialog } from './useAlertDialog';
 import { Button } from '../button';
 import { getFigmaUrl } from '@/shared/config/figma';
-import IcCheck from 'public/icons/ic-check.svg';
+import { IcCheck } from 'public/icons';
 
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
