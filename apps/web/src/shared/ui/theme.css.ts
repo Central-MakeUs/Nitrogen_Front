@@ -73,6 +73,7 @@ export const vars = createGlobalTheme(':root', {
           default: semanticColors.bg.surface.primary.default,
           hover: semanticColors.bg.surface.primary.hover,
           active: semanticColors.bg.surface.primary.active,
+          subtle: semanticColors.bg.surface.primary.subtle,
         },
         secondary: {
           default: semanticColors.bg.surface.secondary.default,
@@ -84,6 +85,20 @@ export const vars = createGlobalTheme(':root', {
         success: semanticColors.bg.status.success,
         warning: semanticColors.bg.status.warning,
         danger: semanticColors.bg.status.danger,
+      },
+      accent: {
+        blue: {
+          default: semanticColors.bg.accent.blue.default,
+          subtle: semanticColors.bg.accent.blue.subtle,
+        },
+        green: {
+          default: semanticColors.bg.accent.green.default,
+          subtle: semanticColors.bg.accent.green.subtle,
+        },
+        yellow: {
+          default: semanticColors.bg.accent.yellow.default,
+          subtle: semanticColors.bg.accent.yellow.subtle,
+        },
       },
     },
     indicator: {
