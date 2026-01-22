@@ -30,7 +30,7 @@ export const indicator = style({
   bottom: vars.spacing.xs,
   left: vars.spacing.xs,
   width: indicatorWVar,
-  backgroundColor: vars.color.bg.surface.primary.default,
+  backgroundColor: vars.color.bg.surface.secondary.default,
   borderRadius: vars.radius.xs2,
   boxShadow: `0 1px 2px 0 ${vars.color.primitive.static.shadow.shadow2}, 0 0 2px 0 ${vars.color.primitive.static.shadow.shadow2}`,
   transform: `translateX(${indicatorXVar})`,

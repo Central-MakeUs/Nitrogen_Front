@@ -14,3 +14,6 @@ export { Toggle } from './toggle';
 export { StepIndicator } from './stepIndicator';
 export { TopBar } from './topBar';
 export { Text } from './text';
+
+export { AlertDialog } from './alertDialog';
+export type { AlertDialogProps } from './alertDialog';
