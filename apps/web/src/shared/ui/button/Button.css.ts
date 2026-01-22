@@ -3,12 +3,12 @@ import { vars, spacing, typography } from '../theme.css';
 
 const buttonSizes = {
   md: {
-    height: '48px',
+    height: '4.8rem',
     paddingY: spacing.md,
     paddingX: spacing['2xl'],
   },
   lg: {
-    height: '54px',
+    height: '5.4rem',
     paddingY: spacing.md,
     paddingX: spacing['2xl'],
   },
