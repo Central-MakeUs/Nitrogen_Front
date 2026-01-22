@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Text } from '../text';
 import { inputFieldContainer } from './inputField.css';
 import { vars } from '../theme.css';
 
 interface InputFieldProps {
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const InputField = ({ label, children }: InputFieldProps) => {
