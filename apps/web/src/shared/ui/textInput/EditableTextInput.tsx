@@ -37,8 +37,10 @@ export const EditableTextInput = React.forwardRef<HTMLInputElement, EditableText
     const currentValue = isControlled ? value : internalValue;
     const currentFieldType = props.fieldType ?? 'number';
 
-    // 빈 값일 때 0 표시
-    const displayValue = currentValue === '' || currentValue == null ? '0' : currentValue;
+const displayValue = 
+  currentFieldType === 'number'
+    ? (currentValue === '' || currentValue == null ? '0' : currentValue)
+    : (currentValue ?? '');
 
     // suffix 결정: prop으로 받거나 number 타입이면 기본 '원'
     const resolvedSuffix = displaySuffix ?? (currentFieldType === 'number' ? '원' : '');
