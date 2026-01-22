@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useLayoutEffect } from 'react';
-import { IcClear } from '@/assets/icons';
+import { IcClear } from 'public/icons';
 import * as styles from './TextInput.css';
 import { vars } from '../theme.css';
 import { Text } from '../text';

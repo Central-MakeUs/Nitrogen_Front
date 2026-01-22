@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { IcEdit } from '@/assets/icons';
+import { IcEdit } from 'public/icons';
 import { TextInput, TextInputProps } from './TextInput';
 import { Text } from '../text';
 import { vars } from '../theme.css';

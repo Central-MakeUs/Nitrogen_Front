@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import * as styles from './Toggle.css';
 import { useToggleIndicator } from './useToggleIndicator';
-import { IcWeek, IcMonth } from '@/assets/icons';
+import { IcWeek, IcMonth } from 'public/icons';
 
 export type ToggleOption = 'list' | 'calendar';
 
