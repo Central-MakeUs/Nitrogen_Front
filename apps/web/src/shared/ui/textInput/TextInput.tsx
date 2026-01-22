@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import { IcClear } from 'public/icons';
 import * as styles from './TextInput.css';
 import { vars } from '../theme.css';
 import { Text } from '../text';
 import { useCombinedRefs } from '@/shared/hooks/useCombinedRefs';
+import { useControlledValue } from '@/shared/hooks/useControlledValue';
 import { getTextWidth } from '@/shared/utils/getTextWidth';
 import { normalizeNumberValue } from '@/shared/utils/inputFormatters';
 
@@ -50,12 +51,13 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     forwardedRef
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const [internalValue, setInternalValue] = useState(value ?? restProps.defaultValue ?? '');
+    const [currentValue, setCurrentValue] = useControlledValue(
+      value as string | undefined,
+      (restProps.defaultValue as string) ?? '',
+      onValueChange
+    );
     const [isFocused, setIsFocused] = useState(false);
     const [inputWidth, setInputWidth] = useState<number | undefined>(undefined);
-
-    const isControlled = value !== undefined;
-    const currentValue = isControlled ? (value as string) : internalValue;
 
     const hasValidationError = (() => {
       if (fieldType === 'text' && maxLength && String(currentValue).length > maxLength) {
@@ -102,12 +104,8 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         newValue = normalizeNumberValue(newValue);
       }
 
-      if (!isControlled) {
-        setInternalValue(newValue);
-      }
-
+      setCurrentValue(newValue);
       onChange?.(e);
-      onValueChange?.(newValue);
     };
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -121,11 +119,8 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     };
 
     const handleClear = () => {
-      if (!isControlled) {
-        setInternalValue('');
-      }
+      setCurrentValue('');
       onClear?.();
-      onValueChange?.('');
       inputRef.current?.focus();
     };
 

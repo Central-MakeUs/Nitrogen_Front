@@ -1,12 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { IcEdit } from 'public/icons';
 import { TextInput, TextInputProps } from './TextInput';
-import { Text } from '../text';
-import { vars } from '../theme.css';
-import * as styles from './TextInput.css';
+import { ReadonlyDisplay } from './ReadonlyDisplay';
 import { useCombinedRefs } from '@/shared/hooks/useCombinedRefs';
+import { useControlledValue } from '@/shared/hooks/useControlledValue';
 
 export interface EditableTextInputProps extends Omit<TextInputProps, 'state'> {
   /** 비편집 모드에서 값 뒤에 표시할 suffix (기본값: number 타입일 때 '원') */
@@ -31,16 +29,13 @@ export const EditableTextInput = React.forwardRef<HTMLInputElement, EditableText
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [isEditing, setIsEditing] = useState(false);
-    const [internalValue, setInternalValue] = useState(value ?? defaultValue ?? '');
-
-    const isControlled = value !== undefined;
-    const currentValue = isControlled ? value : internalValue;
     const currentFieldType = props.fieldType ?? 'number';
 
-const displayValue = 
-  currentFieldType === 'number'
-    ? (currentValue === '' || currentValue == null ? '0' : currentValue)
-    : (currentValue ?? '');
+    const [currentValue, setCurrentValue] = useControlledValue(
+      value as string | undefined,
+      (defaultValue as string) ?? '',
+      onValueChange
+    );
 
     // suffix 결정: prop으로 받거나 number 타입이면 기본 '원'
     const resolvedSuffix = displaySuffix ?? (currentFieldType === 'number' ? '원' : '');
@@ -66,7 +61,7 @@ const displayValue =
     };
 
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      // maxNumber 초과 시 편집 모드 유지 -> 수정이 안되게 함
+      // maxNumber 초과 시 편집 모드 유지
       const blurValue = e.target.value;
       const isOverMax =
         currentFieldType === 'number' &&
@@ -84,39 +79,18 @@ const displayValue =
       onBlur?.(e);
     };
 
-    const handleValueChange = (newValue: string) => {
-      if (!isControlled) {
-        setInternalValue(newValue);
-      }
-      onValueChange?.(newValue);
-    };
-
     const combinedRef = useCombinedRefs(inputRef, forwardedRef) as React.Ref<HTMLInputElement>;
 
     if (!isEditing) {
       return (
-        <div className={styles.textInputContainer}>
-          <div className={styles.inputFieldVariants[hasValidationError ? 'error' : 'default-edit']}>
-            <span
-              className={`${styles.inputVariants[currentFieldType]} ${styles.inputDefaultEdit}`}>
-              {displayValue}
-              {resolvedSuffix}
-            </span>
-            <button
-              type='button'
-              className={styles.editButton}
-              onClick={handleEditClick}
-              disabled={hasValidationError}
-              aria-label='수정'>
-              <IcEdit />
-            </button>
-          </div>
-          {hasValidationError && errorMessage && (
-            <Text variant='h1' color={vars.color.border.error}>
-              {errorMessage}
-            </Text>
-          )}
-        </div>
+        <ReadonlyDisplay
+          value={currentValue}
+          fieldType={currentFieldType}
+          suffix={resolvedSuffix}
+          hasError={hasValidationError}
+          errorMessage={errorMessage}
+          onEditClick={handleEditClick}
+        />
       );
     }
 
@@ -126,7 +100,7 @@ const displayValue =
         fieldType={currentFieldType}
         {...props}
         value={currentValue}
-        onValueChange={handleValueChange}
+        onValueChange={setCurrentValue}
         onBlur={handleBlur}
         errorMessage={errorMessage}
         maxNumber={maxNumber}
