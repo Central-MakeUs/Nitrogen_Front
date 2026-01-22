@@ -17,10 +17,8 @@ export interface TextInputProps extends Omit<React.InputHTMLAttributes<HTMLInput
   fieldType?: TextInputType;
   state?: TextInputState;
   error?: boolean;
-  /** 에러 상태일 때만 표시되는 메시지 */
+  /** 메시지 (에러 상태일 때 빨간색으로 표시) */
   errorMessage?: string;
-  /** 항상 표시되는 힌트 메시지 */
-  hintMessage?: string;
   maxNumber?: number;
   suffix?: string;
   onValueChange?: (value: string) => void;
@@ -36,7 +34,6 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       state: externalState,
       error = false,
       errorMessage,
-      hintMessage,
       maxNumber,
       suffix,
       value,
@@ -175,17 +172,19 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           </button>
         </div>
 
-        {(errorMessage || hintMessage || (showMaxLength && maxLength)) && (
+        {(errorMessage || (showMaxLength && maxLength)) && (
           <div className={styles.descriptionContainer}>
-            {(hasValidationError || error) && errorMessage ? (
-              <Text variant='h1' color={vars.color.border.error}>
+            {errorMessage ? (
+              <Text
+                variant='h1'
+                color={
+                  hasValidationError || error ? vars.color.border.error : vars.color.text.secondary
+                }>
                 {errorMessage}
               </Text>
-            ) : hintMessage ? (
-              <Text variant='h1' color={vars.color.text.secondary}>
-                {hintMessage}
-              </Text>
-            ) : null}
+            ) : (
+              <span />
+            )}
             {showMaxLength && maxLength && fieldType === 'text' && (
               <Text
                 variant='b1'
