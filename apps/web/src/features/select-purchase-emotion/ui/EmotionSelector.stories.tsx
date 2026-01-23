@@ -5,7 +5,7 @@ import { EmotionDescription } from './EmotionDescription';
 import { emotions, type EmotionValue } from '../model';
 
 const meta: Meta<typeof EmotionSelector> = {
-  title: 'Features/SelectPurchaseEmotion/EmotionSelector',
+  title: 'Components/EmotionSelector',
   component: EmotionSelector,
   parameters: {
     layout: 'centered',
@@ -24,7 +24,7 @@ const meta: Meta<typeof EmotionSelector> = {
           width: '400px',
           // height: '600px',
           backgroundColor: '#f5f5f5',
-          margin: '6rem',
+          // margin: '6rem',
         }}>
         <Story />
       </div>
