@@ -15,7 +15,7 @@ const DISPLAY_COUNT = ITEM_COUNT * 2; // 두 번 반복해서 표시
 const ANGLE_PER_ITEM = 360 / DISPLAY_COUNT; // 30도씩
 
 //숫자 작아질 수록 안으로 들어가
-const WHEEL_RADIUS = 105; // 텍스트가 위치할 반지름 (중앙원과 바깥원 사이)
+const WHEEL_RADIUS = 128; // 텍스트가 위치할 반지름 (중앙원과 바깥원 사이)
 
 // 휠에 표시할 아이템들 (두번 반복)
 const displayEmotions = [...emotions, ...emotions];
@@ -148,7 +148,7 @@ export const DialWheel = ({ selectedIndex, onIndexChange }: DialWheelProps) => {
               key={`${emotion.value}-${index}`}
               className={styles.wheelItem({ active: isActive })}
               style={{
-                transform: `rotate(${itemAngle}deg) translateX(${WHEEL_RADIUS}px)`,
+                transform: `rotate(${itemAngle}deg) translateX(${WHEEL_RADIUS}px) translateX(-50%)`,
               }}>
               {emotion.label}
             </Text>
