@@ -10,7 +10,7 @@ const meta = {
     layout: 'centered',
     design: {
       type: 'figma',
-      url: getFigmaUrl('765-11282'),
+      url: getFigmaUrl('115-820'),
     },
     docs: {
       description: {
