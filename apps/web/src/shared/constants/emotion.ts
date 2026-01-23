@@ -1,4 +1,4 @@
-import type { Emotion } from './types';
+import { Emotion } from '../types';
 
 export const emotions: readonly Emotion[] = [
   {

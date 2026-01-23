@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import { useState } from 'react';
 import { EmotionSelector } from './EmotionSelector';
 import { EmotionDescription } from './EmotionDescription';
-import { emotions, type EmotionValue } from '../model';
+import { emotions } from '@/shared/constants';
+import type { EmotionValue } from '@/shared/types';
 
 // TODO: Figma연결(아직 명확히 안나와 있어서 보류)
 const meta: Meta<typeof EmotionSelector> = {

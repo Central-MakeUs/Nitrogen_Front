@@ -3,7 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { DialWheel } from './DialWheel';
 import { ScrollPicker } from './ScrollPicker';
-import { emotions, type EmotionValue } from '../model';
+import { emotions } from '@/shared/constants';
+import type { EmotionValue } from '@/shared/types';
 import * as styles from './EmotionSelector.css';
 
 interface EmotionSelectorProps {

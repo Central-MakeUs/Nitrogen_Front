@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useCallback } from 'react';
 import { Text } from '@/shared/ui/text/Text';
-import { emotions } from '../model';
+import { emotions } from '@/shared/constants';
 import * as styles from './ScrollPicker.css';
 
 interface ScrollPickerProps {

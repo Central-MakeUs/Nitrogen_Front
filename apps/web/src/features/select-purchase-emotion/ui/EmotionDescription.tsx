@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { type Emotion } from '../model';
 import * as styles from './EmotionDescription.css';
 import { Text, vars } from '@/shared/ui';
+import { Emotion } from '@/shared/types';
 
 interface EmotionDescriptionProps {
   emotion: Emotion;
