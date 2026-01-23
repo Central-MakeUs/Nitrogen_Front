@@ -1,5 +1,5 @@
 export { default as IcBell } from './ic-bell.svg';
-export { default as IcCheck } from './ic-check-circle.svg';
+export { default as IcCheckCircle } from './ic-check-circle.svg';
 export { default as IcClear } from './ic-clear.svg';
 export { default as IcEdit } from './ic-edit.svg';
 export { default as IcLeftChevron } from './ic-left-chevron.svg';
@@ -7,3 +7,5 @@ export { default as IcMenu } from './ic-menu.svg';
 export { default as IcMonth } from './ic-month.svg';
 export { default as IcPlus } from './ic-plus.svg';
 export { default as IcWeek } from './ic-week.svg';
+export { default as IcCheck } from './ic-check.svg';
+export { default as IcRightChevron } from './ic-right-chevron.svg';
