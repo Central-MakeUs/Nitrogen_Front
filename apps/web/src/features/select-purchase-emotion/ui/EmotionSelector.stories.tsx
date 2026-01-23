@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import { useState } from 'react';
 import { EmotionSelector } from './EmotionSelector';
 import { EmotionDescription } from './EmotionDescription';
-import { emotions, type EmotionValue } from '../model/emotion';
+import { emotions, type EmotionValue } from '../model';
 
 const meta: Meta<typeof EmotionSelector> = {
   title: 'Features/SelectPurchaseEmotion/EmotionSelector',

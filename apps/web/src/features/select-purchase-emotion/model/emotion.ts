@@ -1,4 +1,6 @@
-export const emotions = [
+import type { Emotion } from './types';
+
+export const emotions: readonly Emotion[] = [
   {
     label: '스트레스',
     value: 'stress',
@@ -37,6 +39,3 @@ export const emotions = [
     description: '미래를 위한 투자성 소비입니다.\n더 나은 내일을 위한 선택입니다.',
   },
 ] as const;
-
-export type Emotion = (typeof emotions)[number];
-export type EmotionValue = Emotion['value'];

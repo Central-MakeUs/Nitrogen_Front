@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useCallback, useEffect, useState } from 'react';
-import { emotions } from '../model/emotion';
+import { emotions } from '../model';
 import * as styles from './DialWheel.css';
 import { Text } from '@/shared/ui';
 

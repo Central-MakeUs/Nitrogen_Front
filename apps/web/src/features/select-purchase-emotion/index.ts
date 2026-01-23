@@ -1,2 +1,4 @@
-export { emotions, type Emotion, type EmotionValue } from './model/emotion';
-export { DialWheel, ScrollPicker, EmotionSelector, EmotionDescription } from './ui';
+export { emotions } from './model';
+export type { Emotion, EmotionValue } from './model';
+
+export { EmotionSelector, EmotionDescription } from './ui';
