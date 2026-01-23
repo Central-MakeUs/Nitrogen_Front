@@ -4,9 +4,20 @@ import { EmotionSelector } from './EmotionSelector';
 import { EmotionDescription } from './EmotionDescription';
 import { emotions, type EmotionValue } from '../model';
 
+// TODO: Figma연결(아직 명확히 안나와 있어서 보류)
 const meta: Meta<typeof EmotionSelector> = {
   title: 'Components/EmotionSelector',
   component: EmotionSelector,
+  argTypes: {
+    defaultIndex: {
+      description: '초기 선택 인덱스',
+      control: { type: 'number', min: 0, max: 5 },
+    },
+    onChange: {
+      description: '감정 선택 시 호출되는 콜백',
+      action: 'changed',
+    },
+  },
   parameters: {
     layout: 'centered',
     docs: {
