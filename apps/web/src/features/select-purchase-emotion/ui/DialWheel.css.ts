@@ -3,7 +3,7 @@ import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '@/shared/ui/theme.css';
 
 const WHEEL_SIZE = '36rem';
-const CENTER_CIRCLE_SIZE = '16.8rem';
+const CENTER_CIRCLE_SIZE = '16.2rem';
 
 export const wheelContainer = style({
   position: 'relative',
@@ -47,6 +47,7 @@ export const wheelItem = recipe({
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
+    alignContent: 'center',
   },
   variants: {
     active: {
@@ -70,7 +71,7 @@ export const centerCircle = style({
   height: CENTER_CIRCLE_SIZE,
   borderRadius: '50%',
   background: vars.color.primitive.static.white,
-  left: '-8.4rem', // CENTER_CIRCLE_SIZE / 2
+  left: `-${parseFloat(CENTER_CIRCLE_SIZE) / 2}rem`,
   top: '50%',
   transform: 'translateY(-50%)',
   zIndex: 10,
