@@ -72,16 +72,17 @@ export const DialWheel = ({ selectedIndex, onIndexChange }: DialWheelProps) => {
     if (!isDragging.current) return;
     isDragging.current = false;
 
-    // 현재 회전값에서 가장 가까운 스냅 위치 계산
-    const snappedDisplayIndex = Math.round(-currentRotation.current / ANGLE_PER_ITEM);
+    // 현재 회전에서 가장 가까운 ANGLE_PER_ITEM 배수 찾기
+    const currentAngle = -currentRotation.current;
+    const snappedAngle = Math.round(currentAngle / ANGLE_PER_ITEM) * ANGLE_PER_ITEM;
+    const targetRotation = -snappedAngle;
 
-    // 원래 6개 인덱스로 변환
-    const finalIndex = ((snappedDisplayIndex % ITEM_COUNT) + ITEM_COUNT) % ITEM_COUNT;
-
-    // 현재 위치에서 가장 가까운 스냅 위치로 이동
-    const targetRotation = -snappedDisplayIndex * ANGLE_PER_ITEM;
     currentRotation.current = targetRotation;
     setRotation(targetRotation);
+
+    // 정규화된 각도에서 인덱스 계산 (0-360 범위로 변환하여 음수 처리)
+    const normalizedAngle = ((snappedAngle % 360) + 360) % 360;
+    const finalIndex = Math.round(normalizedAngle / ANGLE_PER_ITEM) % ITEM_COUNT;
 
     // 내부 변경 표시 (useEffect에서 첫 번째 세트로 이동하지 않도록)
     isInternalChange.current = true;
