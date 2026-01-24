@@ -15,7 +15,7 @@ export interface HistoryCardProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   /** 금액 */
   price: number;
 
-  // TODO: Badge 종류 나오면 타입으로 바꾸기
+  // TODO: Badge 종류 나오면 뱃지 타입 하나로 통일
   /** 뱃지 라벨 (없으면 뱃지 미표시) */
   badgeLabel?: string;
   /** 뱃지 아이콘 */
