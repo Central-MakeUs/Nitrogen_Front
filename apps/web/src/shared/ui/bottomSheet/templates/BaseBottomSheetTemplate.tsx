@@ -20,6 +20,7 @@ interface BottomSheetHeaderProps {
   text?: string;
   type?: headerType;
   onClickAddBtn?: () => void;
+  onClose?: () => void;
 }
 
 const BaseBottomSheetTemplate = ({ children }: { children: React.ReactNode }) => {
@@ -30,14 +31,24 @@ const BottomSheetContent = ({ children }: { children: React.ReactNode }) => {
   return <div>{children}</div>;
 };
 
-const BottomSheetHeader = ({ text, type = 'close', onClickAddBtn }: BottomSheetHeaderProps) => {
+const BottomSheetHeader = ({
+  text,
+  type = 'close',
+  onClickAddBtn,
+  onClose,
+}: BottomSheetHeaderProps) => {
   return (
     <div className={bottomSheetHeaderWrapper}>
       <Text variant='h4' color={vars.color.text.primary}>
         {text}
       </Text>
       {type === 'close' ? (
-        <IcClear className={headerIcon} color={vars.color.icon.subtle} />
+        <IcClear
+          className={headerIcon}
+          color={vars.color.icon.subtle}
+          onClick={onClose}
+          style={{ cursor: 'pointer' }}
+        />
       ) : (
         <div className={BottomSheetHeaderBtn} onClick={onClickAddBtn}>
           <IcPlusSimple className={headerIcon} color={vars.color.icon.subtle} />

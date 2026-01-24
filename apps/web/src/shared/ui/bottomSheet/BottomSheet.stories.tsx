@@ -6,6 +6,7 @@ import { getFigmaUrl } from '@/shared/config/figma';
 import BaseBottomSheetTemplate from './templates/BaseBottomSheetTemplate';
 import { LoginBottomSheetTemplate } from './templates/LoginBottomSheetTemplate';
 import { CategoryBottomSheetTemplate, Category } from './templates/CategoryBottomSheetTemplate';
+import { IconPickerBottomSheetTemplate } from './templates/IconPickerBottomSheetTemplate';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'Components/BottomSheet',
@@ -219,6 +220,52 @@ export const CategoryTemplate: Story = {
               onAddClick={() => alert('카테고리 추가')}
               onConfirm={() => {
                 alert(`선택된 카테고리: ${selectedId}`);
+                setIsOpen(false);
+              }}
+            />
+          </BottomSheet>
+        </div>
+      );
+    };
+
+    return <TemplateDemo />;
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '600px',
+      },
+    },
+  },
+};
+
+export const IconPickerTemplate: Story = {
+  render: () => {
+    const TemplateDemo = () => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [selectedId, setSelectedId] = useState<string | null>('3');
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}>
+          <Button variant='brand' onClick={() => setIsOpen(true)}>
+            아이콘 선택 열기
+          </Button>
+
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <IconPickerBottomSheetTemplate
+              categories={mockCategories}
+              selectedId={selectedId}
+              onSelect={(category) => setSelectedId(category.id)}
+              onClose={() => setIsOpen(false)}
+              onConfirm={() => {
+                alert(`선택된 아이콘: ${selectedId}`);
                 setIsOpen(false);
               }}
             />
