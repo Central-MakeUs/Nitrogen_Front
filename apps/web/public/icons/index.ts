@@ -11,3 +11,4 @@ export { default as IcPercent } from './ic-percent.svg';
 export { default as IcPlus } from './ic-plus.svg';
 export { default as IcShopping } from './ic-shopping.svg';
 export { default as IcWeek } from './ic-week.svg';
+export { default as IcRightChevron } from './ic-right-chevron.svg';
