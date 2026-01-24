@@ -1,9 +1,13 @@
 export { default as IcBell } from './ic-bell.svg';
 export { default as IcCheck } from './ic-check-circle.svg';
 export { default as IcClear } from './ic-clear.svg';
+export { default as IcCoin } from './ic-coin.svg';
 export { default as IcEdit } from './ic-edit.svg';
+export { default as IcEditCategory } from './ic-edit-category.svg';
 export { default as IcLeftChevron } from './ic-left-chevron.svg';
 export { default as IcMenu } from './ic-menu.svg';
 export { default as IcMonth } from './ic-month.svg';
+export { default as IcPercent } from './ic-percent.svg';
 export { default as IcPlus } from './ic-plus.svg';
+export { default as IcShopping } from './ic-shopping.svg';
 export { default as IcWeek } from './ic-week.svg';
