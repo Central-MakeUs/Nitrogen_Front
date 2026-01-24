@@ -17,6 +17,7 @@
     "@tanstack/react-query": "^5.90.16",
     "@vanilla-extract/css": "^1.18.0",
     "@vanilla-extract/dynamic": "^2.1.5",
+    "framer-motion": "^12.29.0",
     "ky": "^1.14.2",
     "next": "16.1.0",
     "react": "^19.2.0",

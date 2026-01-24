@@ -23,3 +23,6 @@ export type { AlertDialogProps } from './alertDialog';
 
 export { Toast, ToastContainer, useToast } from './toast';
 export type { ToastProps } from './toast';
+
+export { BottomSheet } from './bottomSheet';
+export type { BottomSheetProps } from './bottomSheet';
