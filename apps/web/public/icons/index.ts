@@ -17,3 +17,4 @@ export { default as IcReport } from './ic-report.svg';
 export { default as IcHome } from './ic-home.svg';
 export { default as IcPlus } from './ic-plus.svg';
 export { default as IcPlusSimple } from './ic-plus-simple.svg';
+export { default as IcTrash } from './ic-trash.svg';

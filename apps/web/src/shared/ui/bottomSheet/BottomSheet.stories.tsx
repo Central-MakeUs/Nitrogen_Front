@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { BottomSheet } from './BottomSheet';
 import { Button } from '../button';
 import { getFigmaUrl } from '@/shared/config/figma';
-import BaseBottomSheetTemplate from './templates/BaseBottomSheetTemplate';
 import { LoginBottomSheetTemplate } from './templates/LoginBottomSheetTemplate';
 import { CategoryBottomSheetTemplate, Category } from './templates/CategoryBottomSheetTemplate';
 import { IconPickerBottomSheetTemplate } from './templates/IconPickerBottomSheetTemplate';
 import { DatePickerBottomSheetTemplate } from './templates/DatePickerBottomSheetTemplate';
 import { CalendarBottomSheetTemplate } from './templates/CalendarBottomSheetTemplate';
+import { ExpenseFormBottomSheetTemplate } from './templates/ExpenseFormBottomSheetTemplate';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'Components/BottomSheet',
@@ -20,7 +20,6 @@ const meta: Meta<typeof BottomSheet> = {
       url: getFigmaUrl('1347-6824'),
     },
   },
-  tags: ['autodocs'],
   argTypes: {
     isOpen: {
       control: 'boolean',
@@ -38,106 +37,6 @@ const meta: Meta<typeof BottomSheet> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const WithTemplateClose: Story = {
-  render: () => {
-    const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
-
-      return (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-          }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
-            Template (Close) 열기
-          </Button>
-
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <BaseBottomSheetTemplate>
-              <BaseBottomSheetTemplate.Header text='카테고리' type='close' />
-              <BaseBottomSheetTemplate.Content>
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>{' '}
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>{' '}
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>
-              </BaseBottomSheetTemplate.Content>
-              <BaseBottomSheetTemplate.Button label='선택' onClick={() => setIsOpen(false)} />
-            </BaseBottomSheetTemplate>
-          </BottomSheet>
-        </div>
-      );
-    };
-
-    return <TemplateDemo />;
-  },
-  parameters: {
-    docs: {
-      story: {
-        inline: false,
-        height: '500px',
-      },
-    },
-  },
-};
-
-export const WithTemplateAdd: Story = {
-  render: () => {
-    const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
-
-      return (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-          }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
-            Template (Add) 열기
-          </Button>
-
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <BaseBottomSheetTemplate>
-              <BaseBottomSheetTemplate.Header text='카테고리' type='add' />
-              <BaseBottomSheetTemplate.Content>
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>
-                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
-                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
-                </div>
-              </BaseBottomSheetTemplate.Content>
-              <BaseBottomSheetTemplate.Button label='선택' onClick={() => setIsOpen(false)} />
-            </BaseBottomSheetTemplate>
-          </BottomSheet>
-        </div>
-      );
-    };
-
-    return <TemplateDemo />;
-  },
-  parameters: {
-    docs: {
-      story: {
-        inline: false,
-        height: '500px',
-      },
-    },
-  },
-};
 
 export const LoginTemplate: Story = {
   render: () => {
@@ -352,6 +251,75 @@ export const CalendarTemplate: Story = {
               onClose={() => setIsOpen(false)}
               onConfirm={() => {
                 alert('소비일 수정 완료');
+                setIsOpen(false);
+              }}
+            />
+          </BottomSheet>
+        </div>
+      );
+    };
+
+    return <TemplateDemo />;
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '600px',
+      },
+    },
+  },
+};
+
+const expenseCategories: Category[] = [
+  { id: '1', icon: 'shopping', label: '간식' },
+  { id: '2', icon: 'coin', label: '자기계발비' },
+  { id: '3', icon: 'percent', label: '감식' },
+  { id: '4', icon: 'shopping', label: '카테고리명' },
+  { id: '5', icon: 'shopping', label: '간식' },
+  { id: '6', icon: 'coin', label: '자기계발비' },
+  { id: '7', icon: 'percent', label: '감식' },
+];
+
+export const ExpenseFormTemplate: Story = {
+  render: () => {
+    const TemplateDemo = () => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [amount, setAmount] = useState<number>(23000);
+      const [usage, setUsage] = useState<string>('');
+      const [selectedDate] = useState<Date>(new Date(2026, 11, 31));
+      const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>('3');
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}>
+          <Button variant='brand' onClick={() => setIsOpen(true)}>
+            소비 입력 열기
+          </Button>
+
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <ExpenseFormBottomSheetTemplate
+              amount={amount}
+              onAmountChange={(value) => setAmount(Number(value))}
+              usage={usage}
+              onUsageChange={setUsage}
+              selectedDate={selectedDate}
+              onDateClick={() => alert('날짜 선택')}
+              categories={expenseCategories}
+              selectedCategoryId={selectedCategoryId}
+              onCategorySelect={(category) => setSelectedCategoryId(category.id)}
+              onMoreCategoryClick={() => alert('더보기 클릭')}
+              satisfactionLabel='만족도 낮음'
+              satisfactionEmoji='😒'
+              onDelete={() => alert('삭제')}
+              onClose={() => setIsOpen(false)}
+              onConfirm={() => {
+                alert('소비 입력 완료');
                 setIsOpen(false);
               }}
             />
