@@ -1,5 +1,5 @@
 import React from 'react';
-import IcCheck from 'public/icons/ic-check.svg';
+import { IcCheckCircle } from 'public/icons';
 import IcAttention from 'public/icons/ic-attention.svg';
 import { toast, toastIcon, toastIconSvg, toastText } from './Toast.css';
 
@@ -9,7 +9,7 @@ export interface ToastProps {
 }
 
 export const Toast = ({ variant = 'success', message }: ToastProps): React.JSX.Element => {
-  const Icon = variant === 'success' ? IcCheck : IcAttention;
+  const Icon = variant === 'success' ? IcCheckCircle : IcAttention;
 
   return (
     <div className={toast}>

@@ -1,5 +1,5 @@
 export { default as IcBell } from './ic-bell.svg';
-export { default as IcCheck } from './ic-check-circle.svg';
+export { default as IcCheckCircle } from './ic-check-circle.svg';
 export { default as IcClear } from './ic-clear.svg';
 export { default as IcCoin } from './ic-coin.svg';
 export { default as IcEdit } from './ic-edit.svg';
@@ -11,6 +11,8 @@ export { default as IcPlusCircle } from './ic-plus-circle.svg';
 export { default as IcPercent } from './ic-percent.svg';
 export { default as IcShopping } from './ic-shopping.svg';
 export { default as IcWeek } from './ic-week.svg';
+export { default as IcCheck } from './ic-check.svg';
+export { default as IcRightChevron } from './ic-right-chevron.svg';
 export { default as IcReport } from './ic-report.svg';
 export { default as IcHome } from './ic-home.svg';
 export { default as IcPlus } from './ic-plus.svg';

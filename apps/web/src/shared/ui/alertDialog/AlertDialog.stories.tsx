@@ -3,7 +3,7 @@ import { AlertDialog } from './AlertDialog';
 import { useAlertDialog } from './useAlertDialog';
 import { Button } from '../button';
 import { getFigmaUrl } from '@/shared/config/figma';
-import { IcCheck } from 'public/icons';
+import { IcCheckCircle } from 'public/icons';
 
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
@@ -113,7 +113,7 @@ export const Center: Story = {
     title: '모든 소비 회고를 완료했어요',
     description: '이 기록을 바탕으로 주간 소비 리포트를 준비할게요',
     confirmText: '완료',
-    icon: <IcCheck />,
+    icon: <IcCheckCircle />,
     inline: true,
   },
   parameters: {
@@ -148,7 +148,7 @@ export const CenterModal: Story = {
     title: '모든 소비 회고를 완료했어요',
     description: '이 기록을 바탕으로 주간 소비 리포트를 준비할게요',
     confirmText: '완료',
-    icon: <IcCheck />,
+    icon: <IcCheckCircle />,
   },
   render: (args) => <AlertDialogModal {...args} variant='center' />,
   parameters: {
@@ -197,7 +197,7 @@ export const AllVariants: Story = {
           title='모든 소비 회고를 완료했어요'
           description='이 기록을 바탕으로 주간 소비 리포트를 준비할게요'
           confirmText='완료'
-          icon={<IcCheck />}
+          icon={<IcCheckCircle />}
           inline={true}
         />
       </div>

@@ -24,6 +24,7 @@ export const spacing = {
   sm2: '1rem',
   md: '1.2rem',
   lg: '1.4rem',
+  lg2: '1.6rem',
   xl: '1.8rem',
   '2xl': '2rem',
 } as const;
