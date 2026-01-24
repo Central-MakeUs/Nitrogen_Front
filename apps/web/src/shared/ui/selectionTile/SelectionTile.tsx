@@ -52,7 +52,7 @@ export const SelectionTile = ({
           </div>
           <Text variant='b4'>{label}</Text>
         </div>
-        {href ? (
+        {href && !disabled ? (
           <Link href={href} className={styles.chevronIcon()} onClick={(e) => e.stopPropagation()}>
             <IcRightChevron />
           </Link>

@@ -19,6 +19,7 @@ export const container = recipe({
         padding: `${spacing.lg2} ${spacing['2xl']}`,
         borderRadius: vars.radius.sm2,
         border: `1px solid ${vars.color.border.default}`,
+        color: vars.color.text.primary,
         ':disabled': {
           backgroundColor: vars.color.primitive.static.white,
           color: vars.color.text.primary,
@@ -31,16 +32,13 @@ export const container = recipe({
           backgroundColor: vars.color.bg.surface.secondary.hover,
           color: vars.color.text.secondary,
         },
-        ':default': {
-          backgroundColor: vars.color.bg.surface.secondary.default,
-          color: vars.color.text.primary,
-        },
       },
       sm: {
         gap: spacing.sm,
         padding: `${spacing.xs2} 2.6rem`,
         justifyContent: 'space-between',
         backgroundColor: vars.color.primitive.static.white,
+        color: vars.color.text.secondary,
 
         ':disabled': {
           color: vars.color.text.secondary,
@@ -50,9 +48,6 @@ export const container = recipe({
         },
         ':active': {
           color: vars.color.text.tertiary,
-        },
-        ':default': {
-          color: vars.color.text.secondary,
         },
       },
     },
