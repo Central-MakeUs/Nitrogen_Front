@@ -9,7 +9,7 @@ export const container = style({
   display: 'inline-flex',
   alignItems: 'center',
   padding: vars.spacing.xs2,
-  backgroundColor: vars.color.icon.primary,
+  backgroundColor: vars.color.text.primary,
   borderRadius: vars.radius.full,
   border: `0.6px solid ${vars.color.bg.neutral}`,
   boxShadow: vars.shadow.shadow1,
@@ -28,7 +28,7 @@ export const indicator = style({
   bottom: 0,
   left: 0,
   width: indicatorWVar,
-  backgroundColor: vars.color.bg.surface.primary.default,
+  backgroundColor: vars.color.bg.surface.secondary.default,
   borderRadius: vars.radius.full,
   boxShadow: vars.shadow.shadow1,
   transform: `translateX(${indicatorXVar})`,
@@ -86,10 +86,10 @@ export const icon = recipe({
   variants: {
     active: {
       true: {
-        color: vars.color.icon.primary,
+        color: vars.color.icon.secondary,
       },
       false: {
-        color: vars.color.icon.subtle,
+        color: vars.color.icon.tertiary,
       },
     },
   },
@@ -102,10 +102,10 @@ export const label = recipe({
   variants: {
     active: {
       true: {
-        color: vars.color.icon.primary,
+        color: vars.color.icon.secondary,
       },
       false: {
-        color: vars.color.icon.subtle,
+        color: vars.color.icon.tertiary,
       },
     },
   },
