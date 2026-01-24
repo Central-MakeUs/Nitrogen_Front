@@ -24,6 +24,9 @@ export type { AlertDialogProps } from './alertDialog';
 export { Toast, ToastContainer, useToast } from './toast';
 export type { ToastProps } from './toast';
 
+export { Badge } from './badge';
+
+export { HistoryCard } from './historyCard';
 export { BottomNav } from './bottomNav';
 export type { BottomNavProps } from './bottomNav';
 
