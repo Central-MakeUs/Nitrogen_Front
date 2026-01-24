@@ -1,18 +1,10 @@
 import { style } from '@vanilla-extract/css';
-import { spacing, vars, radius, shadows } from '../../theme.css';
+import { spacing } from '../../theme.css';
 
 export const baseBottomSheetTemplate = style({
   display: 'flex',
-  padding: `${spacing.lg} ${spacing.xl}`,
   flexDirection: 'column',
-  backgroundColor: vars.color.primitive.static.white,
-  borderTopLeftRadius: radius.lg2,
-  borderTopRightRadius: radius.lg2,
-  boxShadow: shadows.shadow2,
   gap: spacing.md,
-  maxHeight: '90vh',
-  overflow: 'hidden',
-  zIndex: 1000,
 });
 
 export const content = style({
@@ -24,14 +16,22 @@ export const content = style({
 // BottomSheetHeader Styles
 export const bottomSheetHeaderWrapper = style({
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
+});
+
+export const headerIcon = style({
+  width: '2.4rem',
+  height: '2.4rem',
 });
 
 export const BottomSheetHeaderBtn = style({
   display: 'flex',
   alignItems: 'center',
   gap: spacing.xs,
+  whiteSpace: 'nowrap',
+  border: 'none',
 });
 
 //BottomSheetButtonSection

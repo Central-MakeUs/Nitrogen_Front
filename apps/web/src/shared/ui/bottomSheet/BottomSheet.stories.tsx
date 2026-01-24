@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const WithTemplateClose: Story = {
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(true); // 디버깅: true로 변경
+      const [isOpen, setIsOpen] = useState(false);
 
       return (
         <div
@@ -64,6 +64,53 @@ export const WithTemplateClose: Story = {
                 <div style={{ color: '#757A87', lineHeight: 1.6 }}>
                   BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
                 </div>{' '}
+                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
+                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
+                </div>
+              </BaseBottomSheetTemplate.Content>
+              <BaseBottomSheetTemplate.Button label='선택' onClick={() => setIsOpen(false)} />
+            </BaseBottomSheetTemplate>
+          </BottomSheet>
+        </div>
+      );
+    };
+
+    return <TemplateDemo />;
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '500px',
+      },
+    },
+  },
+};
+
+export const WithTemplateAdd: Story = {
+  render: () => {
+    const TemplateDemo = () => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}>
+          <Button variant='brand' onClick={() => setIsOpen(true)}>
+            Template (Add) 열기
+          </Button>
+
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <BaseBottomSheetTemplate>
+              <BaseBottomSheetTemplate.Header text='카테고리' type='add' />
+              <BaseBottomSheetTemplate.Content>
+                <div style={{ color: '#757A87', lineHeight: 1.6 }}>
+                  BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
+                </div>
                 <div style={{ color: '#757A87', lineHeight: 1.6 }}>
                   BaseBottomSheetTemplate을 사용한 BottomSheet 예시입니다.
                 </div>

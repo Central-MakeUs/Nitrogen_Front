@@ -49,9 +49,6 @@ export const BottomSheet = ({
 
   if (!shouldRender) return null;
 
-  const portalElement = document.getElementById('modal');
-  if (!portalElement) return null;
-
   return createPortal(
     <div className={styles.container} onClick={onClose}>
       <div className={styles.backdrop({ transparent, visible: isAnimating })} />
@@ -61,6 +58,6 @@ export const BottomSheet = ({
         {children}
       </div>
     </div>,
-    portalElement
+    document.body
   );
 };

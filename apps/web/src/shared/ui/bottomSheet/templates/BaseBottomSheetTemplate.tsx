@@ -4,6 +4,7 @@ import {
   BottomSheetHeaderBtn,
   bottomSheetHeaderWrapper,
   bottomSheetButtonSection,
+  headerIcon,
 } from './BaseBottomSheetTemplate.css';
 import { Text } from '../../text';
 import { vars } from '../../theme.css';
@@ -11,11 +12,15 @@ import { IcClear, IcPlusSimple } from 'public/icons';
 import { Button } from '../../button';
 
 interface BottomSheetButtonProps {
-  variant?: 'default' | 'recommend';
   label: string;
   onClick?: () => void;
 }
 type headerType = 'add' | 'close';
+interface BottomSheetHeaderProps {
+  text: string;
+  type: headerType;
+  onClickAddBtn?: () => void;
+}
 
 const BaseBottomSheetTemplate = ({ children }: { children: React.ReactNode }) => {
   return <article className={baseBottomSheetTemplate}>{children}</article>;
@@ -25,17 +30,17 @@ const BottomSheetContent = ({ children }: { children: React.ReactNode }) => {
   return <div>{children}</div>;
 };
 
-const BottomSheetHeader = ({ text, type }: { text: string; type: headerType }) => {
+const BottomSheetHeader = ({ text, type = 'close', onClickAddBtn }: BottomSheetHeaderProps) => {
   return (
     <div className={bottomSheetHeaderWrapper}>
       <Text variant='h4' color={vars.color.text.primary}>
         {text}
       </Text>
       {type === 'close' ? (
-        <IcClear color={vars.color.icon.subtle} />
+        <IcClear className={headerIcon} color={vars.color.icon.subtle} />
       ) : (
-        <div className={BottomSheetHeaderBtn}>
-          <IcPlusSimple color={vars.color.icon.subtle} />
+        <div className={BottomSheetHeaderBtn} onClick={onClickAddBtn}>
+          <IcPlusSimple className={headerIcon} color={vars.color.icon.subtle} />
           <Text variant='h4' color={vars.color.text.tertiary}>
             추가
           </Text>
