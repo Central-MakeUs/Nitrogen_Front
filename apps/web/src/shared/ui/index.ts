@@ -25,3 +25,5 @@ export { Toast, ToastContainer, useToast } from './toast';
 export type { ToastProps } from './toast';
 
 export { Badge } from './badge';
+
+export { HistoryCard } from './historyCard';
