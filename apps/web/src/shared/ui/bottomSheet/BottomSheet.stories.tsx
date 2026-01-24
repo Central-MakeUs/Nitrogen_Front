@@ -21,20 +21,6 @@ const meta: Meta<typeof BottomSheet> = {
       control: 'boolean',
       description: 'BottomSheet 열림 상태',
     },
-    snapPoints: {
-      control: 'object',
-      description: '스냅 포인트 배열 (화면 높이 비율, 0~1)',
-      table: {
-        defaultValue: { summary: '[0.9, 0.5, 0]' },
-      },
-    },
-    initialSnap: {
-      control: 'number',
-      description: '초기 스냅 포인트',
-      table: {
-        defaultValue: { summary: '0.5' },
-      },
-    },
     transparent: {
       control: 'boolean',
       description: '백드롭 투명 여부',
@@ -65,11 +51,7 @@ export const WithTemplateClose: Story = {
             Template (Close) 열기
           </Button>
 
-          <BottomSheet
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            snapPoints={[0.5, 0]}
-            initialSnap={0.5}>
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
             <BaseBottomSheetTemplate>
               <BaseBottomSheetTemplate.Header text='카테고리' type='close' />
               <BaseBottomSheetTemplate.Content>
