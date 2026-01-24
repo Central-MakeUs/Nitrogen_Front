@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import * as styles from './Toggle.css';
-import { useToggleIndicator } from './useToggleIndicator';
+import { useToggleIndicator } from '../../hooks/useToggleIndicator';
 import { IcWeek, IcMonth } from 'public/icons';
 
 export type ToggleOption = 'list' | 'calendar';
@@ -27,8 +27,14 @@ export const Toggle = ({
   const isControlled = controlledValue !== undefined;
   const value = isControlled ? controlledValue : uncontrolledValue;
 
-  const { containerRef, listRef, calendarRef, indicatorStyle } = useToggleIndicator({
-    activeValue: value,
+  const {
+    containerRef,
+    firstRef: listRef,
+    secondRef: calendarRef,
+    indicatorStyle,
+  } = useToggleIndicator({
+    activeIndex: value === 'list' ? 0 : 1,
+    styleVars: { x: styles.indicatorXVar, width: styles.indicatorWVar },
   });
 
   const handleChange = (newValue: ToggleOption) => {

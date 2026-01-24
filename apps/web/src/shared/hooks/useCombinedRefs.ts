@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-export function useCombinedRefs<T>(...refs: Array<React.Ref<T>>): React.Ref<T> {
+export const useCombinedRefs = <T>(...refs: Array<React.Ref<T>>): React.Ref<T> => {
   return useCallback(
     (element: T) => {
       refs.forEach((ref) => {
@@ -13,4 +13,4 @@ export function useCombinedRefs<T>(...refs: Array<React.Ref<T>>): React.Ref<T> {
     },
     [refs]
   );
-}
+};
