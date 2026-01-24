@@ -47,6 +47,7 @@ export const vars = createGlobalTheme(':root', {
       brand: semanticColors.icon.brand,
       onBrand: semanticColors.icon.onBrand,
       disabled: semanticColors.icon.disabled,
+      tertiary: semanticColors.icon.tertiary,
     },
     bg: {
       base: semanticColors.bg.base,

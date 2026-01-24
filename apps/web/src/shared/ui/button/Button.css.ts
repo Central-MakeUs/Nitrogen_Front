@@ -2,6 +2,11 @@ import { recipe } from '@vanilla-extract/recipes';
 import { vars, spacing, typography } from '../theme.css';
 
 const buttonSizes = {
+  sm: {
+    paddingY: spacing.xs2,
+    paddingX: spacing.sm2,
+    gap: spacing.xs,
+  },
   md: {
     height: '4.8rem',
     paddingY: spacing.md,
@@ -70,6 +75,10 @@ export const button = recipe({
       },
     },
     size: {
+      sm: {
+        padding: `${buttonSizes.sm.paddingY} ${buttonSizes.sm.paddingX}`,
+        ...typography.body.b1,
+      },
       md: {
         height: buttonSizes.md.height,
         padding: `${buttonSizes.md.paddingY} ${buttonSizes.md.paddingX}`,
