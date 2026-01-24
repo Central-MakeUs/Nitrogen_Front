@@ -9,7 +9,6 @@ export { default as IcMenu } from './ic-menu.svg';
 export { default as IcMonth } from './ic-month.svg';
 export { default as IcPlusCircle } from './ic-plus-circle.svg';
 export { default as IcPercent } from './ic-percent.svg';
-export { default as IcPlus } from './ic-plus.svg';
 export { default as IcShopping } from './ic-shopping.svg';
 export { default as IcWeek } from './ic-week.svg';
 export { default as IcReport } from './ic-report.svg';
