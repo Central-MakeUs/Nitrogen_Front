@@ -9,11 +9,11 @@ type SetValue<T> = (value: T) => void;
  * @param onChange - 값 변경 시 호출되는 콜백
  * @returns [현재값, 값 설정 함수, 제어 모드 여부]
  */
-export function useControlledValue<T>(
+export const useControlledValue = <T>(
   controlledValue: T | undefined,
   defaultValue: T,
   onChange?: (value: T) => void
-): [T, SetValue<T>, boolean] {
+): [T, SetValue<T>, boolean] => {
   const [internalValue, setInternalValue] = useState<T>(defaultValue);
 
   const isControlled = controlledValue !== undefined;
@@ -30,4 +30,4 @@ export function useControlledValue<T>(
   );
 
   return [value, setValue, isControlled];
-}
+};
