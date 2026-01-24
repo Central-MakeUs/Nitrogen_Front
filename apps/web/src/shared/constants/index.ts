@@ -1,0 +1,1 @@
+export { emotions } from './emotion';

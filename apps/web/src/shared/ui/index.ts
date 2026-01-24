@@ -10,6 +10,9 @@ export * from './tokens';
 export { Button } from './button';
 export type { ButtonProps } from './button';
 
+export { CategoryButton } from './categoryButton';
+export type { CategoryButtonProps } from './categoryButton';
+
 export { Toggle } from './toggle';
 export { StepIndicator } from './stepIndicator';
 export { TopBar } from './topBar';
@@ -20,3 +23,11 @@ export type { AlertDialogProps } from './alertDialog';
 
 export { Toast, ToastContainer, useToast } from './toast';
 export type { ToastProps } from './toast';
+
+export { BottomNav } from './bottomNav';
+export type { BottomNavProps } from './bottomNav';
+
+export { NavToggle } from './navToggle';
+export type { NavToggleProps, NavToggleOption } from './navToggle';
+
+export { PlusButton } from './plusButton';
