@@ -10,6 +10,9 @@ export * from './tokens';
 export { Button } from './button';
 export type { ButtonProps } from './button';
 
+export { CategoryButton } from './categoryButton';
+export type { CategoryButtonProps } from './categoryButton';
+
 export { Toggle } from './toggle';
 export { StepIndicator } from './stepIndicator';
 export { TopBar } from './topBar';
