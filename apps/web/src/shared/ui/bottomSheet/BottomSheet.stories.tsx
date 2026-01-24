@@ -8,6 +8,7 @@ import { LoginBottomSheetTemplate } from './templates/LoginBottomSheetTemplate';
 import { CategoryBottomSheetTemplate, Category } from './templates/CategoryBottomSheetTemplate';
 import { IconPickerBottomSheetTemplate } from './templates/IconPickerBottomSheetTemplate';
 import { DatePickerBottomSheetTemplate } from './templates/DatePickerBottomSheetTemplate';
+import { CalendarBottomSheetTemplate } from './templates/CalendarBottomSheetTemplate';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'Components/BottomSheet',
@@ -309,6 +310,48 @@ export const DatePickerTemplate: Story = {
               onClose={() => setIsOpen(false)}
               onConfirm={() => {
                 alert('날짜 선택 완료');
+                setIsOpen(false);
+              }}
+            />
+          </BottomSheet>
+        </div>
+      );
+    };
+
+    return <TemplateDemo />;
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '600px',
+      },
+    },
+  },
+};
+
+export const CalendarTemplate: Story = {
+  render: () => {
+    const TemplateDemo = () => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}>
+          <Button variant='brand' onClick={() => setIsOpen(true)}>
+            소비일 수정 열기
+          </Button>
+
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <CalendarBottomSheetTemplate
+              onClose={() => setIsOpen(false)}
+              onConfirm={() => {
+                alert('소비일 수정 완료');
                 setIsOpen(false);
               }}
             />
