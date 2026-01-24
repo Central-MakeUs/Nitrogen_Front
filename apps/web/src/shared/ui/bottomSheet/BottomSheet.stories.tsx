@@ -4,6 +4,7 @@ import { BottomSheet } from './BottomSheet';
 import { Button } from '../button';
 import { getFigmaUrl } from '@/shared/config/figma';
 import BaseBottomSheetTemplate from './templates/BaseBottomSheetTemplate';
+import { LoginBottomSheetTemplate } from './templates/LoginBottomSheetTemplate';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'Components/BottomSheet',
@@ -117,6 +118,42 @@ export const WithTemplateAdd: Story = {
               </BaseBottomSheetTemplate.Content>
               <BaseBottomSheetTemplate.Button label='선택' onClick={() => setIsOpen(false)} />
             </BaseBottomSheetTemplate>
+          </BottomSheet>
+        </div>
+      );
+    };
+
+    return <TemplateDemo />;
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '500px',
+      },
+    },
+  },
+};
+
+export const LoginTemplate: Story = {
+  render: () => {
+    const TemplateDemo = () => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}>
+          <Button variant='brand' onClick={() => setIsOpen(true)}>
+            Template Login 열기
+          </Button>
+
+          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <LoginBottomSheetTemplate />
           </BottomSheet>
         </div>
       );

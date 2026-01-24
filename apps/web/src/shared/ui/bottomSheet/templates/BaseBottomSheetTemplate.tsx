@@ -17,8 +17,8 @@ interface BottomSheetButtonProps {
 }
 type headerType = 'add' | 'close';
 interface BottomSheetHeaderProps {
-  text: string;
-  type: headerType;
+  text?: string;
+  type?: headerType;
   onClickAddBtn?: () => void;
 }
 
