@@ -8,6 +8,7 @@ export const inputWrapper = style({
 export const dateSection = style({
   display: 'flex',
   gap: spacing['2xl'],
+  padding: `${spacing.md} 0`,
 });
 
 export const dateButton = style({
