@@ -3,11 +3,13 @@ import { EditableTextInput, TextInput } from '../../../../shared/ui/textInput';
 import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
 import * as styles from './ExpenseFormBottomSheet.css';
-import { Text, CategoryButton, Button } from '@/shared/ui';
+import { Text, Button } from '@/shared/ui';
 import { vars } from '../../../../shared/ui/theme.css';
 import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
 import { IcPlusCircle, IcRightChevron, IcTrash } from 'public/icons';
 import { InfoSection } from './infoSection';
+import { CategoryGrid } from '@/widgets';
+import { formatDate } from '@/shared/utils';
 
 export interface Category {
   id: string;
@@ -48,14 +50,17 @@ export interface ExpenseFormBottomSheetProps {
   onClose?: () => void;
 }
 
-const formatDate = (date: Date): string => {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  return `${year}년 ${month}월 ${day}일`;
-};
-
-const MAX_VISIBLE_CATEGORIES = 7;
+//TODO: 나중엔 API 호출 or 전역에서 불러오는 방식으로 ㄱ
+//TODO: 나머지도 여기서 불러오는 방식이 나을 듯
+const expenseCategories: Category[] = [
+  { id: '1', icon: 'shopping', label: '간식' },
+  { id: '2', icon: 'coin', label: '자기계발비' },
+  { id: '3', icon: 'percent', label: '감식' },
+  { id: '4', icon: 'shopping', label: '카테고리명' },
+  { id: '5', icon: 'shopping', label: '간식' },
+  { id: '6', icon: 'coin', label: '자기계발비' },
+  { id: '7', icon: 'percent', label: '감식' },
+];
 
 export const ExpenseFormBottomSheet = ({
   amount,
@@ -64,7 +69,6 @@ export const ExpenseFormBottomSheet = ({
   onUsageChange,
   selectedDate = new Date(),
   onDateClick,
-  categories = [],
   selectedCategoryId,
   onCategorySelect,
   onMoreCategoryClick,
@@ -72,9 +76,6 @@ export const ExpenseFormBottomSheet = ({
   onConfirm,
   onClose,
 }: ExpenseFormBottomSheetProps) => {
-  const visibleCategories = categories.slice(0, MAX_VISIBLE_CATEGORIES);
-  const hasMoreCategories = categories.length > MAX_VISIBLE_CATEGORIES;
-
   return (
     <BaseBottomSheetTemplate>
       <BaseBottomSheetTemplate.Header type='close' onClose={onClose} />
@@ -113,30 +114,12 @@ export const ExpenseFormBottomSheet = ({
       </div>
 
       {/* 카테고리 */}
-      <div className={styles.categorySection}>
-        <Text variant='h3' color={vars.color.text.primary}>
-          카테고리
-        </Text>
-        <div className={styles.categoryGrid}>
-          {visibleCategories.map((category) => (
-            <CategoryButton
-              key={category.id}
-              icon={category.icon}
-              label={category.label}
-              mode={selectedCategoryId === category.id ? 'active' : 'default'}
-              onClick={() => onCategorySelect?.(category)}
-            />
-          ))}
-          {(hasMoreCategories || categories.length > 0) && (
-            <CategoryButton
-              icon='plus'
-              label='더보기'
-              mode='default'
-              onClick={onMoreCategoryClick}
-            />
-          )}
-        </div>
-      </div>
+      <CategoryGrid
+        categories={expenseCategories}
+        selectedId={selectedCategoryId}
+        onSelect={onCategorySelect}
+        onMoreClick={onMoreCategoryClick}
+      />
 
       {/* 훌린듯이 소비 */}
       <InfoSection
