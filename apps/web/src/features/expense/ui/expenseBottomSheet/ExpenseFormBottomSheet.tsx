@@ -1,14 +1,11 @@
-import { InputField } from '../../inputField';
-import { EditableTextInput, TextInput } from '../../textInput';
-import BaseBottomSheetTemplate from './BaseBottomSheetTemplate';
+import { InputField } from '../../../../shared/ui/inputField';
+import { EditableTextInput, TextInput } from '../../../../shared/ui/textInput';
+import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
-import * as styles from './ExpenseFormBottomSheetTemplate.css';
-import { Badge } from '../../badge';
-import { Text } from '../../text';
-import { vars } from '../../theme.css';
-import { CategoryButton } from '../../categoryButton/CategoryButton';
-import { CategoryIconType } from '../../categoryButton/categoryIcons';
-import { Button } from '../../button';
+import * as styles from './ExpenseFormBottomSheet.css';
+import { Badge, Text, CategoryButton, Button } from '@/shared/ui';
+import { vars } from '../../../../shared/ui/theme.css';
+import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
 import { IcPlusCircle, IcRightChevron, IcTrash } from 'public/icons';
 
 export interface Category {
@@ -17,7 +14,7 @@ export interface Category {
   label: string;
 }
 
-export interface ExpenseFormBottomSheetTemplateProps {
+export interface ExpenseFormBottomSheetProps {
   /** 소비 금액 */
   amount?: number;
   /** 소비 금액 변경 콜백 */
@@ -59,7 +56,7 @@ const formatDate = (date: Date): string => {
 
 const MAX_VISIBLE_CATEGORIES = 7;
 
-export const ExpenseFormBottomSheetTemplate = ({
+export const ExpenseFormBottomSheet = ({
   amount,
   onAmountChange,
   usage,
@@ -75,7 +72,7 @@ export const ExpenseFormBottomSheetTemplate = ({
   onDelete,
   onConfirm,
   onClose,
-}: ExpenseFormBottomSheetTemplateProps) => {
+}: ExpenseFormBottomSheetProps) => {
   const visibleCategories = categories.slice(0, MAX_VISIBLE_CATEGORIES);
   const hasMoreCategories = categories.length > MAX_VISIBLE_CATEGORIES;
 

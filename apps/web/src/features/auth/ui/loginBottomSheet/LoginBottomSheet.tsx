@@ -1,9 +1,9 @@
-import BaseBottomSheetTemplate from './BaseBottomSheetTemplate';
 import React from 'react';
-import { Text } from '../../text';
-import * as styles from './LoginBottomSheetTemplate.css';
+import * as styles from './LoginBottomSheet.css';
+import { Text } from '@/shared/ui';
+import { BaseBottomSheetTemplate } from '@/shared/ui/bottomSheet/templates';
 
-export const LoginBottomSheetTemplate = () => {
+export const LoginBottomSheet = () => {
   return (
     <BaseBottomSheetTemplate>
       <BaseBottomSheetTemplate.Header type='close' />

@@ -1,6 +1,7 @@
 import { recipe } from '@vanilla-extract/recipes';
-import { radius, spacing, vars } from '../../theme.css';
 import { style } from '@vanilla-extract/css';
+import { vars } from '@/shared/ui/theme.css';
+import { radius, spacing } from '@/shared/ui/tokens/spacing';
 
 export const textStyle = style({
   color: vars.color.text.primary,

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { spacing } from '../../theme.css';
+import { spacing } from '../../../../shared/ui/theme.css';
 
 export const categoryGrid = style({
   display: 'grid',

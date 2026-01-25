@@ -1,8 +1,8 @@
-import BaseBottomSheetTemplate from './BaseBottomSheetTemplate';
+import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
-import * as styles from './CategoryBottomSheetTemplate.css';
-import { CategoryButton } from '../../categoryButton/CategoryButton';
-import { CategoryIconType } from '../../categoryButton/categoryIcons';
+import * as styles from './CategoryBottomSheet.css';
+import { CategoryButton } from '../../../../shared/ui/categoryButton/CategoryButton';
+import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
 
 // TODO: 타입 수정
 export interface Category {
@@ -11,35 +11,36 @@ export interface Category {
   label: string;
 }
 
-export interface IconPickerBottomSheetTemplateProps {
-  /** 아이콘 목록 */
+export interface CategoryBottomSheetTemplateProps {
+  /** 카테고리 목록 */
   categories: Category[];
-  /** 선택된 아이콘 ID */
+  /** 선택된 카테고리 ID */
   selectedId?: string | null;
-  /** 아이콘 선택 시 콜백 */
+  /** 카테고리 선택 시 콜백 */
   onSelect?: (category: Category) => void;
+  /** + 추가 버튼 클릭 시 콜백 */
+  onAddClick?: () => void;
   /** 선택 버튼 클릭 시 콜백 */
   onConfirm?: () => void;
-  /** X 버튼 클릭 시 콜백 */
-  onClose?: () => void;
 }
 
-export const IconPickerBottomSheetTemplate = ({
+export const CategoryBottomSheetTemplate = ({
   categories,
   selectedId,
   onSelect,
+  onAddClick,
   onConfirm,
-  onClose,
-}: IconPickerBottomSheetTemplateProps) => {
+}: CategoryBottomSheetTemplateProps) => {
   return (
     <BaseBottomSheetTemplate>
-      <BaseBottomSheetTemplate.Header type='close' text='아이콘' onClose={onClose} />
+      <BaseBottomSheetTemplate.Header type='add' text='카테고리' onClickAddBtn={onAddClick} />
       <BaseBottomSheetTemplate.Content>
         <div className={styles.categoryGrid}>
           {categories.map((category) => (
             <CategoryButton
               key={category.id}
               icon={category.icon}
+              label={category.label}
               mode={selectedId === category.id ? 'active' : 'default'}
               onClick={() => onSelect?.(category)}
             />

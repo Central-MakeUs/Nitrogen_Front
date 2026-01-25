@@ -1,7 +1,8 @@
-import BaseBottomSheetTemplate from './BaseBottomSheetTemplate';
+// CalendarBottomSheetTemplate
+import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
 
-export interface DatePickerBottomSheetTemplateProps {
+export interface CalendarBottomSheetTemplateProps {
   /** 선택된 날짜 */
   selectedDate?: Date;
   /** 날짜 선택 시 콜백 */
@@ -12,13 +13,13 @@ export interface DatePickerBottomSheetTemplateProps {
   onClose?: () => void;
 }
 
-export const DatePickerBottomSheetTemplate = ({
+export const CalendarBottomSheetTemplate = ({
   onConfirm,
   onClose,
-}: DatePickerBottomSheetTemplateProps) => {
+}: CalendarBottomSheetTemplateProps) => {
   return (
     <BaseBottomSheetTemplate>
-      <BaseBottomSheetTemplate.Header type='close' text='월 선택' onClose={onClose} />
+      <BaseBottomSheetTemplate.Header type='close' text='소비일 수정' onClose={onClose} />
       <div>{/* TODO: 달력 컴포넌트 */}</div>
       <BaseBottomSheetTemplate.Button label='선택' onClick={onConfirm} />
     </BaseBottomSheetTemplate>
