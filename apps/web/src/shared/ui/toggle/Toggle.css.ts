@@ -10,7 +10,7 @@ export const container = style({
   gap: vars.spacing.xs2,
   alignItems: 'center',
   padding: vars.spacing.xs,
-  backgroundColor: vars.color.bg.base,
+  backgroundColor: vars.color.bg.neutral.primary,
   borderRadius: vars.radius.sm2,
   width: 'fit-content',
   position: 'relative',
@@ -80,6 +80,7 @@ export const icon = recipe({
     active: {
       true: {
         filter: 'none',
+        color: vars.color.icon.secondary,
       },
       false: {
         color: vars.color.icon.disabled,
