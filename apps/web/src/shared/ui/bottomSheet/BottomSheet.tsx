@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import * as styles from './BottomSheet.css';
@@ -24,10 +24,14 @@ export const BottomSheet = ({
 }: BottomSheetProps): React.JSX.Element | null => {
   const [shouldRender, setShouldRender] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const prevOverflow = useRef<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
+      if (prevOverflow.current === null) {
+        prevOverflow.current = document.body.style.overflow;
+      }
       document.body.style.overflow = 'hidden';
 
       requestAnimationFrame(() => {
@@ -40,12 +44,22 @@ export const BottomSheet = ({
 
       const timeout = setTimeout(() => {
         setShouldRender(false);
-        document.body.style.overflow = '';
+        document.body.style.overflow = prevOverflow.current ?? '';
+        prevOverflow.current = null;
       }, 300);
 
       return () => clearTimeout(timeout);
     }
   }, [isOpen, shouldRender]);
+
+  useEffect(() => {
+    return () => {
+      if (prevOverflow.current !== null) {
+        document.body.style.overflow = prevOverflow.current;
+        prevOverflow.current = null;
+      }
+    };
+  }, []);
 
   if (!shouldRender) return null;
 
