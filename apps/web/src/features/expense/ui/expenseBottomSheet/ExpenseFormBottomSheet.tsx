@@ -43,9 +43,9 @@ export interface ExpenseFormBottomSheetProps {
   /** 더보기 버튼 클릭 시 콜백 */
   onMoreCategoryClick?: () => void;
   /** 만족도 라벨 */
-  satisfactionLabel?: string;
+  satisfactionLabel?: string; //TODO: 임시
   /** 만족도 이모지 */
-  satisfactionEmoji?: string;
+  satisfactionEmoji?: string; //TODO: 임시
   /** 삭제 버튼 클릭 시 콜백 */
   onDelete?: () => void;
   /** 선택 버튼 클릭 시 콜백 */
