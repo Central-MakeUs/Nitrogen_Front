@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { AlertDialog } from './AlertDialog';
-import { useAlertDialog } from './useAlertDialog';
 import { Button } from '../button';
 import { getFigmaUrl } from '@/shared/config/figma';
 import { IcCheckCircle } from 'public/icons';
+import { useModal } from '@/shared/hooks';
 
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
@@ -58,9 +58,8 @@ const meta: Meta<typeof AlertDialog> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Interactive wrapper component for modal stories
 const AlertDialogModal = (props: Partial<React.ComponentProps<typeof AlertDialog>>) => {
-  const dialog = useAlertDialog();
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <div>
@@ -72,14 +71,14 @@ const AlertDialogModal = (props: Partial<React.ComponentProps<typeof AlertDialog
           height: '100vh',
           padding: '0 100px',
         }}>
-        <Button variant='brand' onClick={dialog.open}>
+        <Button variant='brand' onClick={openModal}>
           다이얼로그 열기
         </Button>
       </div>
 
       <AlertDialog
-        isOpen={dialog.isOpen}
-        onClose={dialog.close}
+        isOpen={isOpen}
+        onClose={closeModal}
         title='Title'
         description='description'
         {...props}

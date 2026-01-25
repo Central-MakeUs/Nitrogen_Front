@@ -34,3 +34,12 @@ export { NavToggle } from './navToggle';
 export type { NavToggleProps, NavToggleOption } from './navToggle';
 
 export { PlusButton } from './plusButton';
+
+export { BottomSheet } from './bottomSheet';
+export type { BottomSheetProps } from './bottomSheet';
+
+export { BaseBottomSheetTemplate } from './bottomSheet';
+
+export { EditableTextInput, TextInput } from './textInput';
+export { InputField } from './inputField';
+export type { CategoryIconType } from './categoryButton';
