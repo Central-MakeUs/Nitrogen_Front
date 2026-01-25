@@ -12,8 +12,6 @@ export interface BottomSheetProps {
   onClose: () => void;
   /** 백드롭 투명 여부 */
   transparent?: boolean;
-  /** 자식 요소 */
-  children: React.ReactNode;
 }
 
 export const BottomSheet = ({
