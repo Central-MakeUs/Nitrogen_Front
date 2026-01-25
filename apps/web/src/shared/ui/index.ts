@@ -43,3 +43,5 @@ export { BaseBottomSheetTemplate } from './bottomSheet';
 export { EditableTextInput, TextInput } from './textInput';
 export { InputField } from './inputField';
 export type { CategoryIconType } from './categoryButton';
+
+export { ToggleSwitch } from './toggleSwitch';
