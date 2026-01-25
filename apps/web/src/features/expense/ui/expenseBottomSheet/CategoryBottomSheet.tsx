@@ -1,8 +1,6 @@
-import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
 import * as styles from './CategoryBottomSheet.css';
-import { CategoryButton } from '../../../../shared/ui/categoryButton/CategoryButton';
-import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
+import { BaseBottomSheetTemplate, CategoryButton, CategoryIconType } from '@/shared/ui';
 
 // TODO: 타입 수정
 export interface Category {

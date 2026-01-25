@@ -1,16 +1,20 @@
-import { InputField } from '../../../../shared/ui/inputField';
-import { EditableTextInput, TextInput } from '../../../../shared/ui/textInput';
-import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
 import * as styles from './ExpenseFormBottomSheet.css';
-import { Text, Button } from '@/shared/ui';
-import { vars } from '../../../../shared/ui/theme.css';
-import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
+import {
+  Text,
+  Button,
+  BaseBottomSheetTemplate,
+  vars,
+  EditableTextInput,
+  InputField,
+  TextInput,
+  CategoryIconType,
+} from '@/shared/ui';
+
 import { IcPlusCircle, IcRightChevron, IcTrash } from 'public/icons';
 import { InfoSection } from './infoSection';
 import { CategoryGrid } from '@/widgets';
 import { formatDate } from '@/shared/utils';
-
 export interface Category {
   id: string;
   icon: CategoryIconType;

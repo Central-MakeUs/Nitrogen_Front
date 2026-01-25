@@ -1,5 +1,5 @@
 // CalendarBottomSheetTemplate
-import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
+import { BaseBottomSheetTemplate } from '@/shared/ui';
 import React from 'react';
 
 export interface CalendarBottomSheetTemplateProps {
