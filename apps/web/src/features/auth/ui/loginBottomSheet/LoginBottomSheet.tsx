@@ -3,10 +3,14 @@ import * as styles from './LoginBottomSheet.css';
 import { Text } from '@/shared/ui';
 import { BaseBottomSheetTemplate } from '@/shared/ui/bottomSheet/templates';
 
-export const LoginBottomSheet = () => {
+export interface LoginBottomSheetProps {
+  onClose?: () => void;
+}
+
+export const LoginBottomSheet = ({ onClose }: LoginBottomSheetProps) => {
   return (
     <BaseBottomSheetTemplate>
-      <BaseBottomSheetTemplate.Header type='close' />
+      <BaseBottomSheetTemplate.Header type='close' onClose={onClose} />
       <Text variant='t4' className={styles.textStyle} as='div'>
         간편 로그인으로
         <br />

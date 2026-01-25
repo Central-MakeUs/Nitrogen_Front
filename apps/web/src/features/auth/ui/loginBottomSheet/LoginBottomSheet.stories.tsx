@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { useState } from 'react';
 import { BottomSheet } from '@/shared/ui/bottomSheet';
 import { Button } from '@/shared/ui';
 import { LoginBottomSheet } from './LoginBottomSheet';
 import { getFigmaUrl } from '@/shared/config/figma';
+import { useModal } from '@/shared/hooks';
 
 const meta = {
   title: 'Components/BottomSheet/LoginBottomSheet',
@@ -50,8 +50,7 @@ export const Default: Story = {
   name: '기본 로그인',
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
-
+      const { isOpen, openModal, closeModal } = useModal();
       return (
         <div
           style={{
@@ -60,12 +59,12 @@ export const Default: Story = {
             alignItems: 'center',
             height: '100vh',
           }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
+          <Button variant='brand' onClick={openModal}>
             로그인 열기
           </Button>
 
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <LoginBottomSheet />
+          <BottomSheet isOpen={isOpen} onClose={closeModal}>
+            <LoginBottomSheet onClose={closeModal} />
           </BottomSheet>
         </div>
       );

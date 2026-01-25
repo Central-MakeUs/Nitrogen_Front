@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import * as styles from './BottomSheet.css';
@@ -21,7 +21,7 @@ export const BottomSheet = ({
   onClose,
   transparent = false,
   children,
-}: BottomSheetProps): React.JSX.Element | null => {
+}: PropsWithChildren<BottomSheetProps>): React.JSX.Element | null => {
   const [shouldRender, setShouldRender] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const prevOverflow = useRef<string | null>(null);

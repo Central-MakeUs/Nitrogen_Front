@@ -52,12 +52,7 @@ const BottomSheetHeader = ({
         {text}
       </Text>
       {type === 'close' ? (
-        <IcClear
-          className={headerIcon}
-          color={vars.color.icon.subtle}
-          onClick={onClose}
-          style={{ cursor: 'pointer' }}
-        />
+        <IcClear className={headerIcon} color={vars.color.icon.subtle} onClick={onClose} />
       ) : (
         <div className={BottomSheetHeaderBtn} onClick={onClickAddBtn}>
           <IcPlusSimple className={headerIcon} color={vars.color.icon.subtle} />
