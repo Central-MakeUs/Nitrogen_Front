@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BottomSheet } from '@/shared/ui/bottomSheet';
 import { Button } from '@/shared/ui';
 import { CategoryBottomSheetTemplate, Category } from './CategoryBottomSheet';
+import { useModal } from '@/shared/hooks';
 
 const meta: Meta<typeof CategoryBottomSheetTemplate> = {
   title: 'Components/BottomSheet/CategoryBottomSheet',
@@ -39,7 +40,8 @@ const mockCategories: Category[] = [
 export const Default: Story = {
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
+      const { isOpen, openModal, closeModal } = useModal();
+
       const [selectedId, setSelectedId] = useState<string | null>('3');
 
       return (
@@ -50,11 +52,11 @@ export const Default: Story = {
             alignItems: 'center',
             height: '100vh',
           }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
+          <Button variant='brand' onClick={openModal}>
             카테고리 선택 열기
           </Button>
 
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <BottomSheet isOpen={isOpen} onClose={closeModal}>
             <CategoryBottomSheetTemplate
               categories={mockCategories}
               selectedId={selectedId}
@@ -62,7 +64,7 @@ export const Default: Story = {
               onAddClick={() => alert('카테고리 추가')}
               onConfirm={() => {
                 alert(`선택된 카테고리: ${selectedId}`);
-                setIsOpen(false);
+                closeModal();
               }}
             />
           </BottomSheet>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BottomSheet } from '@/shared/ui/bottomSheet';
 import { Button } from '@/shared/ui';
 import { ExpenseFormBottomSheet } from './ExpenseFormBottomSheet';
+import { useModal } from '@/shared/hooks';
 
 const meta: Meta<typeof ExpenseFormBottomSheet> = {
   title: 'Components/BottomSheet/ExpenseFormBottomSheet',
@@ -18,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
+      const { isOpen, openModal, closeModal } = useModal();
       const [amount, setAmount] = useState<number>(23000);
       const [usage, setUsage] = useState<string>('');
       const [selectedDate] = useState<Date>(new Date(2026, 11, 31));
@@ -32,11 +33,11 @@ export const Default: Story = {
             alignItems: 'center',
             height: '100vh',
           }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
+          <Button variant='brand' onClick={openModal}>
             소비 입력 열기
           </Button>
 
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <BottomSheet isOpen={isOpen} onClose={closeModal}>
             <ExpenseFormBottomSheet
               amount={amount}
               onAmountChange={(value) => setAmount(Number(value))}
@@ -50,10 +51,10 @@ export const Default: Story = {
               satisfactionLabel='만족도 낮음'
               satisfactionEmoji='😒'
               onDelete={() => alert('삭제')}
-              onClose={() => setIsOpen(false)}
+              onClose={closeModal}
               onConfirm={() => {
                 alert('소비 입력 완료');
-                setIsOpen(false);
+                closeModal();
               }}
             />
           </BottomSheet>

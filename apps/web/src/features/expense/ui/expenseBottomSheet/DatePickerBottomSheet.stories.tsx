@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { useState } from 'react';
 import { BottomSheet } from '@/shared/ui/bottomSheet';
 import { Button } from '@/shared/ui';
 import { DatePickerBottomSheetTemplate } from './DatePickerBottomSheet';
+import { useModal } from '@/shared/hooks';
 
 const meta: Meta<typeof DatePickerBottomSheetTemplate> = {
   title: 'Components/BottomSheet/DatePickerBottomSheet',
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
+      const { isOpen, openModal, closeModal } = useModal();
 
       return (
         <div
@@ -28,16 +28,16 @@ export const Default: Story = {
             alignItems: 'center',
             height: '100vh',
           }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
+          <Button variant='brand' onClick={openModal}>
             날짜 선택 열기
           </Button>
 
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <BottomSheet isOpen={isOpen} onClose={closeModal}>
             <DatePickerBottomSheetTemplate
-              onClose={() => setIsOpen(false)}
+              onClose={closeModal}
               onConfirm={() => {
                 alert('날짜 선택 완료');
-                setIsOpen(false);
+                closeModal();
               }}
             />
           </BottomSheet>

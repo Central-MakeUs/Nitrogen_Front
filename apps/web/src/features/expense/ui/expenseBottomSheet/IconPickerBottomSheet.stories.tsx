@@ -4,6 +4,7 @@ import { BottomSheet } from '@/shared/ui/bottomSheet';
 import { Button } from '@/shared/ui';
 import { IconPickerBottomSheetTemplate } from './IconPickerBottomSheet';
 import { Category } from './CategoryBottomSheet';
+import { useModal } from '@/shared/hooks';
 
 const meta: Meta<typeof IconPickerBottomSheetTemplate> = {
   title: 'Components/BottomSheet/IconPickerBottomSheet',
@@ -40,7 +41,7 @@ const mockCategories: Category[] = [
 export const Default: Story = {
   render: () => {
     const TemplateDemo = () => {
-      const [isOpen, setIsOpen] = useState(false);
+      const { isOpen, openModal, closeModal } = useModal();
       const [selectedId, setSelectedId] = useState<string | null>('3');
 
       return (
@@ -51,19 +52,19 @@ export const Default: Story = {
             alignItems: 'center',
             height: '100vh',
           }}>
-          <Button variant='brand' onClick={() => setIsOpen(true)}>
+          <Button variant='brand' onClick={openModal}>
             아이콘 선택 열기
           </Button>
 
-          <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <BottomSheet isOpen={isOpen} onClose={closeModal}>
             <IconPickerBottomSheetTemplate
               categories={mockCategories}
               selectedId={selectedId}
               onSelect={(category) => setSelectedId(category.id)}
-              onClose={() => setIsOpen(false)}
+              onClose={closeModal}
               onConfirm={() => {
                 alert(`선택된 아이콘: ${selectedId}`);
-                setIsOpen(false);
+                closeModal();
               }}
             />
           </BottomSheet>
