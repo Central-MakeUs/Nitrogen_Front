@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { radius, spacing, vars } from '@/shared/ui/theme.css';
+import { spacing, vars } from '@/shared/ui/theme.css';
 
 export const inputWrapper = style({
   marginBottom: '2.1rem',
@@ -37,17 +37,6 @@ export const categoryGrid = style({
   gridTemplateColumns: 'repeat(4, 1fr)',
   rowGap: spacing.md,
   columnGap: '2.6rem',
-});
-
-export const badgeWrapper = style({
-  display: 'flex',
-  padding: '1.3rem 1.7rem',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: spacing.sm2,
-  borderRadius: radius.sm2,
-  background: '#EFF2F8',
-  marginBottom: '2.1rem',
 });
 
 export const buttonSection = style({

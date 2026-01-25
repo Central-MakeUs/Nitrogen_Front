@@ -3,10 +3,11 @@ import { EditableTextInput, TextInput } from '../../../../shared/ui/textInput';
 import BaseBottomSheetTemplate from '../../../../shared/ui/bottomSheet/templates/BaseBottomSheetTemplate';
 import React from 'react';
 import * as styles from './ExpenseFormBottomSheet.css';
-import { Badge, Text, CategoryButton, Button } from '@/shared/ui';
+import { Text, CategoryButton, Button } from '@/shared/ui';
 import { vars } from '../../../../shared/ui/theme.css';
 import { CategoryIconType } from '../../../../shared/ui/categoryButton/categoryIcons';
 import { IcPlusCircle, IcRightChevron, IcTrash } from 'public/icons';
+import { InfoSection } from './infoSection';
 
 export interface Category {
   id: string;
@@ -67,8 +68,6 @@ export const ExpenseFormBottomSheet = ({
   selectedCategoryId,
   onCategorySelect,
   onMoreCategoryClick,
-  satisfactionLabel = '만족도 낮음',
-  satisfactionEmoji = '😒',
   onDelete,
   onConfirm,
   onClose,
@@ -81,15 +80,13 @@ export const ExpenseFormBottomSheet = ({
       <BaseBottomSheetTemplate.Header type='close' onClose={onClose} />
 
       {/* 소비금액 */}
-      <div>
-        <InputField label='소비금액'>
-          <EditableTextInput
-            value={amount?.toString()}
-            onValueChange={onAmountChange}
-            fieldType='number'
-          />
-        </InputField>
-      </div>
+      <InputField label='소비금액'>
+        <EditableTextInput
+          value={amount?.toString()}
+          onValueChange={onAmountChange}
+          fieldType='number'
+        />
+      </InputField>
 
       {/* 사용처 */}
       <div className={styles.inputWrapper}>
@@ -142,16 +139,12 @@ export const ExpenseFormBottomSheet = ({
       </div>
 
       {/* 훌린듯이 소비 */}
-      <div className={styles.badgeWrapper}>
-        <Text variant='h1' color={vars.color.text.secondary}>
-          훌린듯이 소비
-        </Text>
-        <Badge
-          label={satisfactionLabel}
-          icon={<span>{satisfactionEmoji}</span>}
-          backgroundColor={vars.color.bg.neutral.secondary}
-        />
-      </div>
+      <InfoSection
+        badges={[
+          { id: '1', label: '홀린듯이' },
+          { id: '2', label: '별로였어요', icon: <span>😐</span>, isActive: true },
+        ]}
+      />
 
       {/* 하단 버튼 */}
       <div className={styles.buttonSection}>
