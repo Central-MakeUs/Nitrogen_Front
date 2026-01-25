@@ -155,6 +155,11 @@ export const clearButton = style({
   color: vars.color.primitive.static.white,
 });
 
+export const clearIcon = style({
+  width: '0.6rem',
+  height: '0.6rem',
+});
+
 export const clearButtonHidden = style({
   opacity: 0,
   pointerEvents: 'none',

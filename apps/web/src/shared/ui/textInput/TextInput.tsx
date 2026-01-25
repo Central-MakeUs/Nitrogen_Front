@@ -157,7 +157,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             onClick={handleClear}
             aria-label='지우기'
             tabIndex={showClearButton ? 0 : -1}>
-            <IcClear />
+            <IcClear className={styles.clearIcon} />
           </button>
         </div>
 
