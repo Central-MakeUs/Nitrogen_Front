@@ -28,7 +28,7 @@ export const loginBtn = recipe({
   },
   variants: {
     social: {
-      kakako: {
+      kakao: {
         background: '#F9DC00',
         color: vars.color.text.primary,
       },
