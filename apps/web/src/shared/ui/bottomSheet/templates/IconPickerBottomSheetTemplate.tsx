@@ -46,7 +46,8 @@ export const IconPickerBottomSheetTemplate = ({
           ))}
         </div>
       </BaseBottomSheetTemplate.Content>
-      <BaseBottomSheetTemplate.Button label='선택' onClick={onConfirm} />
+      <BaseBottomSheetTemplate.Button label='선택' onClick={onConfirm} isGradation={true} />
+      <BaseBottomSheetTemplate.Gradient />
     </BaseBottomSheetTemplate>
   );
 };

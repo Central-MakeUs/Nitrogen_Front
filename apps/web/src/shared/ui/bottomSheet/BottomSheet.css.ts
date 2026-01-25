@@ -45,7 +45,7 @@ export const sheet = recipe({
     left: 0,
     maxWidth: '768px',
     margin: '0 auto',
-    backgroundColor: vars.color.primitive.static.white,
+    backgroundColor: vars.color.bg.surface.secondary.default,
     borderTopLeftRadius: radius.lg2,
     borderTopRightRadius: radius.lg2,
     padding: `${spacing.lg} ${spacing.xl}`,

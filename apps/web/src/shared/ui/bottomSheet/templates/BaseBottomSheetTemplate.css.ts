@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { spacing } from '../../theme.css';
 
 export const baseBottomSheetTemplate = style({
+  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   gap: spacing.md,
@@ -39,4 +40,21 @@ export const bottomSheetButtonSection = style({
   display: 'flex',
   width: '100%',
   gap: spacing.sm,
+});
+
+// BottomSheetButton
+export const bottomSheetButton = style({
+  position: 'relative',
+  zIndex: 1,
+});
+
+// BottomSheetButton gradient wrapper
+export const bottomSheetButtonWrapper = style({
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  height: '10rem',
+  background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 45%)',
+  pointerEvents: 'none',
 });
