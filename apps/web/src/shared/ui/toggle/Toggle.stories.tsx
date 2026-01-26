@@ -10,24 +10,25 @@ const meta = {
     layout: 'padded',
     design: {
       type: 'figma',
-      url: getFigmaUrl('765-11282'),
+      url: getFigmaUrl('1942-9538'),
     },
     docs: {
       description: {
         component: [
-          '캘린더 화면에서 사용자가 보여지는 소비기록 타입을 선택하는 토글 컴포넌트입니다.',
+          'On/Off 상태를 전환하는 스위치 컴포넌트입니다.',
           '',
           '## 주요 기능',
-          '- **defaultValue**: 기본값 (list: 리스트 타입, calendar: 캘린더 타입)',
+          '- **checked**: 체크 상태',
+          '- **defaultChecked**: 기본 체크 상태',
+          '- **onChange**: 상태 변경 콜백 `(checked: boolean) => void`',
           '- **disabled**: 비활성화 상태',
-          '- **ariaLabel**: ARIA 라벨',
+          '- **ref**: input 요소에 대한 ref 전달 가능',
           '',
         ].join('\n'),
       },
     },
   },
   args: {
-    defaultValue: 'list',
     disabled: false,
   },
 } satisfies Meta<typeof Toggle>;
@@ -36,13 +37,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {},
+};
+
+export const Checked: Story = {
   args: {
-    defaultValue: 'list',
+    defaultChecked: true,
   },
 };
 
-export const Calendar: Story = {
+export const Disabled: Story = {
   args: {
-    defaultValue: 'calendar',
+    disabled: true,
   },
 };

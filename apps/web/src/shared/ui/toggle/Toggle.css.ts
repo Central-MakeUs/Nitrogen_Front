@@ -1,93 +1,53 @@
-import { createVar, style } from '@vanilla-extract/css';
-import { recipe } from '@vanilla-extract/recipes';
+import { style } from '@vanilla-extract/css';
 import { vars } from '../theme.css';
 
-export const indicatorXVar = createVar();
-export const indicatorWVar = createVar();
-
-export const container = style({
-  display: 'inline-flex',
-  gap: vars.spacing.xs2,
-  alignItems: 'center',
-  padding: vars.spacing.xs,
-  backgroundColor: vars.color.bg.neutral.primary,
-  borderRadius: vars.radius.sm2,
-  width: 'fit-content',
-  position: 'relative',
-});
-
-export const itemsRow = style({
+export const wrapper = style({
   display: 'flex',
-  gap: vars.spacing.xs2,
-  alignItems: 'center',
   position: 'relative',
-  zIndex: 1,
 });
 
-export const indicator = style({
+export const input = style({
   position: 'absolute',
-  top: vars.spacing.xs,
-  bottom: vars.spacing.xs,
-  left: vars.spacing.xs,
-  width: indicatorWVar,
-  backgroundColor: vars.color.bg.surface.secondary.default,
-  borderRadius: vars.radius.xs2,
-  boxShadow: `0 1px 2px 0 ${vars.color.primitive.static.shadow.shadow2}, 0 0 2px 0 ${vars.color.primitive.static.shadow.shadow2}`,
-  transform: `translateX(${indicatorXVar})`,
-  transition:
-    'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), width 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-  pointerEvents: 'none',
+  width: '1px',
+  height: '1px',
+  padding: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0, 0, 0, 0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+});
 
-  '@media': {
-    '(prefers-reduced-motion: reduce)': {
-      transition: 'none',
+export const track = style({
+  position: 'relative',
+  display: 'inline-flex',
+  alignItems: 'center',
+  width: '4rem',
+  height: '2.4rem',
+  padding: '0.3rem',
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.color.bg.neutral.secondary,
+  transition: 'background-color 0.2s ease',
+  boxShadow: `0 0 2px 0 rgba(0, 0, 0, 0.12) inset`,
+  selectors: {
+    [`${input}:checked + &`]: {
+      backgroundColor: vars.color.text.status.success,
     },
   },
 });
 
-export const item = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: vars.spacing.xs,
-  padding: `0.5rem ${vars.spacing.xs2}`,
-  borderRadius: vars.radius.xs2,
-  border: 'none',
-  cursor: 'pointer',
-  backgroundColor: 'transparent',
-  outline: 'none',
-  position: 'relative',
+export const knob = style({
+  width: '1.8rem',
+  height: '1.8rem',
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.color.bg.neutral.subtle,
+  boxShadow: `0 1px 2px 0 ${vars.color.primitive.static.shadow.shadow2}, 0 0 2px 0 ${vars.color.primitive.static.shadow.shadow2}`,
+  transition: 'transform 0.2s ease',
+  transform: 'translateX(0)',
 
   selectors: {
-    '&:disabled': {
-      cursor: 'not-allowed',
-      color: vars.color.icon.disabled,
+    [`${input}:checked ~ label &`]: {
+      transform: 'translateX(1.6rem)',
     },
-  },
-});
-
-export const icon = recipe({
-  base: {
-    width: '1.6rem',
-    height: '1.6rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    transition: 'filter 0.2s ease',
-  },
-  variants: {
-    active: {
-      true: {
-        filter: 'none',
-        color: vars.color.icon.secondary,
-      },
-      false: {
-        color: vars.color.icon.disabled,
-      },
-    },
-  },
-  defaultVariants: {
-    active: false,
   },
 });

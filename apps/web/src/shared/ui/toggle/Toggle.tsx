@@ -1,82 +1,42 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { forwardRef, useId, ChangeEvent, InputHTMLAttributes } from 'react';
 import * as styles from './Toggle.css';
-import { useToggleIndicator } from '../../hooks/useToggleIndicator';
-import { IcWeek, IcMonth } from 'public/icons';
 
-export type ToggleOption = 'list' | 'calendar';
-
-export interface ToggleProps {
-  value?: ToggleOption;
-  defaultValue?: ToggleOption;
-  onChange?: (value: ToggleOption) => void;
-  disabled?: boolean;
-  ariaLabel?: string;
+export interface ToggleProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
+  onChange?: (checked: boolean) => void;
 }
 
-export const Toggle = ({
-  value: controlledValue,
-  defaultValue = 'list',
-  onChange,
-  disabled = false,
-  ariaLabel = 'view-toggle',
-}: ToggleProps) => {
-  const [uncontrolledValue, setUncontrolledValue] = useState<ToggleOption>(defaultValue);
+export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
+  ({ disabled = false, onChange, id: propId, ...props }, ref) => {
+    const generatedId = useId();
+    const id = propId ?? generatedId;
 
-  const isControlled = controlledValue !== undefined;
-  const value = isControlled ? controlledValue : uncontrolledValue;
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e.target.checked);
+    };
 
-  const {
-    containerRef,
-    firstRef: listRef,
-    secondRef: calendarRef,
-    indicatorStyle,
-  } = useToggleIndicator({
-    activeIndex: value === 'list' ? 0 : 1,
-    styleVars: { x: styles.indicatorXVar, width: styles.indicatorWVar },
-  });
-
-  const handleChange = (newValue: ToggleOption) => {
-    if (disabled || newValue === value) return;
-
-    if (!isControlled) {
-      setUncontrolledValue(newValue);
-    }
-    onChange?.(newValue);
-  };
-
-  return (
-    <div className={styles.container} role='toggle' aria-label={ariaLabel}>
-      <div className={styles.indicator} style={indicatorStyle} aria-hidden />
-
-      <div ref={containerRef} className={styles.itemsRow}>
-        <button
-          ref={listRef}
-          type='button'
-          role='radio'
-          aria-checked={value === 'list'}
+    return (
+      <span className={styles.wrapper}>
+        <input
+          ref={ref}
+          id={id}
+          type='checkbox'
+          role='switch'
+          className={styles.input}
           disabled={disabled}
-          className={styles.item}
-          onClick={() => handleChange('list')}>
-          <div className={styles.icon({ active: value === 'list' })}>
-            <IcWeek />
-          </div>
-        </button>
+          onChange={handleChange}
+          {...props}
+        />
+        <label htmlFor={id} className={styles.track}>
+          <span className={styles.knob} />
+        </label>
+      </span>
+    );
+  }
+);
 
-        <button
-          ref={calendarRef}
-          type='button'
-          role='radio'
-          aria-checked={value === 'calendar'}
-          disabled={disabled}
-          className={styles.item}
-          onClick={() => handleChange('calendar')}>
-          <div className={styles.icon({ active: value === 'calendar' })}>
-            <IcMonth />
-          </div>
-        </button>
-      </div>
-    </div>
-  );
-};
+Toggle.displayName = 'Toggle';

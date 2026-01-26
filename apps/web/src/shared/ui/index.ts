@@ -13,7 +13,7 @@ export type { ButtonProps } from './button';
 export { CategoryButton } from './categoryButton';
 export type { CategoryButtonProps } from './categoryButton';
 
-export { Toggle } from './toggle';
+export { ViewToggle } from './viewToggle';
 export { StepIndicator } from './stepIndicator';
 export { TopBar } from './topBar';
 export { Text } from './text';
@@ -44,4 +44,4 @@ export { EditableTextInput, TextInput } from './textInput';
 export { InputField } from './inputField';
 export type { CategoryIconType } from './categoryButton';
 
-export { ToggleSwitch } from './toggleSwitch';
+export { Toggle } from './toggle';
