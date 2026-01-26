@@ -33,6 +33,11 @@ export const vars = createGlobalTheme(':root', {
       brand: semanticColors.text.brand,
       onBrand: semanticColors.text.onBrand,
       onDisabled: semanticColors.text.onDisabled,
+      status: {
+        success: semanticColors.text.status.success,
+        warning: semanticColors.text.status.warning,
+        danger: semanticColors.text.status.danger,
+      },
     },
     border: {
       error: semanticColors.border.error,
