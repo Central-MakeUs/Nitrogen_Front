@@ -9,12 +9,18 @@ import { useCalendar } from '@/shared/ui/calendar/model/useCalendar';
 export interface CalendarProps {
   currentDate?: Date;
   selectedDate?: Date | null;
+  variant?: 'modal' | 'home';
+  showText?: boolean;
+  renderDateText?: (date: Date) => string | undefined;
   onDateSelect?: (date: Date) => void;
 }
 
 export const Calendar = ({
   currentDate = new Date(),
   selectedDate,
+  variant = 'home',
+  showText = false,
+  renderDateText,
   onDateSelect,
 }: CalendarProps) => {
   const {
@@ -30,16 +36,24 @@ export const Calendar = ({
     onDateSelect,
   });
 
+  const size = variant === 'home' ? 'lg' : 'md';
+  const shouldShowText = variant === 'home' && showText;
+
   return (
     <div className={container}>
-      <CalendarHeader
-        formattedMonth={formattedMonth}
-        onPrevMonth={handlePrevMonth}
-        onNextMonth={handleNextMonth}
-      />
+      {variant === 'modal' && (
+        <CalendarHeader
+          formattedMonth={formattedMonth}
+          onPrevMonth={handlePrevMonth}
+          onNextMonth={handleNextMonth}
+        />
+      )}
       <CalendarGrid
         dates={dates}
         selectedDate={effectiveSelectedDate}
+        size={size}
+        showText={shouldShowText}
+        renderDateText={renderDateText}
         onDateSelect={handleDateSelect}
       />
     </div>

@@ -1,5 +1,6 @@
 import { vars, spacing, typography } from '@/shared/ui/theme.css';
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 export const container = style({
   display: 'flex',
@@ -44,11 +45,24 @@ export const navText = style({
   color: vars.color.text.primary,
 });
 
-export const grid = style({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(7, 1fr)',
-  gap: 0,
-  justifyItems: 'center',
+export const grid = recipe({
+  base: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(7, 1fr)',
+    gap: 0,
+    justifyItems: 'center',
+  },
+  variants: {
+    size: {
+      md: {},
+      lg: {
+        rowGap: '1rem',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
 });
 
 export const weekdayCell = style({

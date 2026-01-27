@@ -3,12 +3,6 @@ import { Calendar } from './Calendar';
 import { getFigmaUrl } from '@/shared/config/figma';
 import { fn } from '@storybook/test';
 
-/**
- * 바텀시트 용 캘린더 컴포넌트
- *
- * - 바텀시트 내에서 날짜를 선택할 때 사용
- * - 월 네비게이션으로 이전/다음 달 이동 가능
- */
 const meta: Meta<typeof Calendar> = {
   title: 'Components/Calendar',
   component: Calendar,
@@ -20,7 +14,8 @@ const meta: Meta<typeof Calendar> = {
     },
     docs: {
       description: {
-        component: '바텀시트에서 사용되는 날짜 선택 캘린더입니다. 날짜를 클릭하여 선택합니다.',
+        component:
+          '홈 화면과 바텀시트에 쓰이는 날짜 선택 캘린더 컴포넌트입니다. 기본값은 home입니다. modal 설정 시 바텀시트에서 사용되는 날짜 선택 캘린더로 전환됩니다.',
       },
     },
   },
@@ -39,6 +34,27 @@ const meta: Meta<typeof Calendar> = {
     currentDate: {
       table: { disable: true },
     },
+    variant: {
+      control: 'radio',
+      options: ['modal', 'home'],
+      description: '캘린더 디스플레이 변형 (modal: 바텀시트 용, home: 홈 화면 용)',
+      table: {
+        defaultValue: { summary: 'home' },
+      },
+    },
+    showText: {
+      control: 'boolean',
+      description: '날짜 아래 텍스트 표시 여부 (home 모드에서만 적용)',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    renderDateText: {
+      description: '날짜별 텍스트를 반환하는 함수',
+      table: {
+        type: { summary: '(date: Date) => string | undefined' },
+      },
+    },
     onDateSelect: {
       description: '날짜 클릭 시 호출되는 콜백',
     },
@@ -55,4 +71,24 @@ const meta: Meta<typeof Calendar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    variant: 'home',
+  },
+};
+
+export const HomeWithText: Story = {
+  args: {
+    variant: 'home',
+    showText: true,
+    renderDateText: (date: Date) => {
+      return date ? '40,000' : undefined;
+    },
+  },
+};
+
+export const Modal: Story = {
+  args: {
+    variant: 'modal',
+  },
+};
