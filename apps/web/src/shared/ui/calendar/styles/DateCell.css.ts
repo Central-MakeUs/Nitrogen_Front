@@ -1,7 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 import { vars, typography, shadows } from '@/shared/ui/theme.css';
 
-// 외부 셀 컨테이너 (클릭 영역)
 export const dateCellWrapper = recipe({
   base: {
     display: 'flex',
@@ -20,6 +19,10 @@ export const dateCellWrapper = recipe({
         width: '4.8rem',
         height: '5.2rem',
       },
+      weekly: {
+        width: '4.4rem',
+        padding: 0,
+      },
     },
     showText: {
       true: {
@@ -37,7 +40,6 @@ export const dateCellWrapper = recipe({
   },
 });
 
-// 내부 날짜 badge (배경색 적용 영역)
 export const dateBadge = recipe({
   base: {
     display: 'flex',
@@ -58,6 +60,13 @@ export const dateBadge = recipe({
         width: '3.2rem',
         height: '3.2rem',
         ...typography.body.b5,
+      },
+      weekly: {
+        width: '100%',
+        height: '4.4rem',
+        padding: '1.2rem',
+        borderRadius: vars.radius.xl,
+        ...typography.body.b4,
       },
     },
     selected: {
@@ -95,6 +104,14 @@ export const dateBadge = recipe({
         boxShadow: shadows.shadow2,
       },
     },
+    {
+      variants: { size: 'weekly', selected: true },
+      style: {
+        backgroundColor: vars.color.bg.surface.secondary.default,
+        color: vars.color.text.primary,
+        boxShadow: shadows.shadow2,
+      },
+    },
   ],
   defaultVariants: {
     selected: false,
@@ -103,7 +120,6 @@ export const dateBadge = recipe({
   },
 });
 
-// 날짜 아래 텍스트 스타일
 export const dateText = recipe({
   base: {
     fontSize: '1rem',
@@ -117,6 +133,9 @@ export const dateText = recipe({
       lg: {
         ...typography.body.description,
         color: vars.color.text.secondary,
+      },
+      weekly: {
+        display: 'none',
       },
     },
     isOutsideMonth: {

@@ -7,10 +7,13 @@ import {
   getDaysInMonth,
   subMonths,
   addMonths,
+  addDays,
+  subDays,
+  startOfWeek,
 } from 'date-fns';
 
 // Re-export date-fns functions
-export { addMonths, subMonths };
+export { addMonths, subMonths, addDays, subDays };
 export { isSameDay as isSameDate };
 export { dateFnsIsToday as isToday };
 
@@ -70,4 +73,26 @@ export const generateCalendarDates = (currentDate: Date): CalendarDate[] => {
   }
 
   return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
+};
+
+/**
+ * 주간 캘린더에 표시할 날짜 배열 생성 (월~일 7일)
+ * @param baseDate 기준 날짜 (이 날짜가 포함된 주의 월~일을 반환)
+ */
+export const generateWeeklyDates = (baseDate: Date): CalendarDate[] => {
+  // 월요일을 주의 시작으로 설정
+  const weekStart = startOfWeek(baseDate, { weekStartsOn: 1 });
+
+  const weekDates: CalendarDate[] = [];
+
+  // 월요일부터 일요일까지 7일 생성
+  for (let i = 0; i < 7; i++) {
+    const date = addDays(weekStart, i);
+    weekDates.push({
+      date,
+      isCurrentMonth: date.getMonth() === baseDate.getMonth(),
+    });
+  }
+
+  return weekDates;
 };

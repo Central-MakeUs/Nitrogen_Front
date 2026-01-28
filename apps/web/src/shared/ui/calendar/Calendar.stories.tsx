@@ -42,6 +42,14 @@ const meta: Meta<typeof Calendar> = {
         defaultValue: { summary: 'home' },
       },
     },
+    viewMode: {
+      control: 'radio',
+      options: ['monthly', 'weekly'],
+      description: '캘린더 뷰 모드 (monthly: 월간 뷰, weekly: 주간 뷰)',
+      table: {
+        defaultValue: { summary: 'monthly' },
+      },
+    },
     showText: {
       control: 'boolean',
       description: '날짜 아래 텍스트 표시 여부 (home 모드에서만 적용)',
@@ -57,6 +65,12 @@ const meta: Meta<typeof Calendar> = {
     },
     onDateSelect: {
       description: '날짜 클릭 시 호출되는 콜백',
+    },
+    onWeekChange: {
+      description: '주 변경 시 호출되는 콜백 (주간 모드)',
+    },
+    onMonthChange: {
+      description: '월 변경 시 호출되는 콜백 (월간 모드)',
     },
   },
   render: ({ currentDate, ...args }) => (
@@ -90,5 +104,18 @@ export const HomeWithText: Story = {
 export const Modal: Story = {
   args: {
     variant: 'modal',
+  },
+};
+
+export const Weekly: Story = {
+  args: {
+    variant: 'home',
+    viewMode: 'weekly',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: getFigmaUrl('2253-15074'),
+    },
   },
 };

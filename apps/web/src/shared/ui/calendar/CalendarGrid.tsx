@@ -9,7 +9,7 @@ import { isSameDate, isToday } from '@/shared/ui/calendar/lib/calendarUtils';
 interface CalendarGridProps {
   dates: Array<{ date: Date; isCurrentMonth: boolean }>;
   selectedDate: Date | null;
-  size?: 'md' | 'lg';
+  size?: 'md' | 'lg' | 'weekly';
   showText?: boolean;
   renderDateText?: (date: Date) => string | undefined;
   onDateSelect: (date: Date) => void;

@@ -58,6 +58,7 @@ export const grid = recipe({
       lg: {
         rowGap: '1rem',
       },
+      weekly: {},
     },
   },
   defaultVariants: {
@@ -72,6 +73,39 @@ export const weekdayCell = style({
   height: '2rem',
   color: vars.color.text.tertiary,
   ...typography.body.b2,
+});
+
+export const weeklyGrid = style({
+  display: 'flex',
+  gap: '0.8rem',
+  padding: '1.4rem 1.8rem',
+  width: '100%',
+});
+
+export const weeklyColumn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '0.6rem',
+  flex: 1,
+});
+
+export const weeklyWeekdayCell = recipe({
+  base: {
+    ...typography.body.b1,
+    color: vars.color.text.tertiary,
+    textAlign: 'center',
+  },
+  variants: {
+    isSelected: {
+      true: {
+        color: vars.color.text.brand,
+      },
+    },
+  },
+  defaultVariants: {
+    isSelected: false,
+  },
 });
 
 export const footer = style({

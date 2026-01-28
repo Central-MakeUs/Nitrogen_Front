@@ -6,7 +6,7 @@ export interface DateCellProps {
   isSelected: boolean;
   isToday: boolean;
   isOutsideMonth: boolean;
-  size?: 'md' | 'lg';
+  size?: 'md' | 'lg' | 'weekly';
   showText?: boolean;
   text?: string;
   onClick?: (date: Date) => void;
