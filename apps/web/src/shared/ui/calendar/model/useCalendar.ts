@@ -73,6 +73,19 @@ export const useCalendar = ({
   }, [internalCurrentDate, viewMode]);
 
   const handleDateSelect = (date: Date) => {
+    if (
+      date.getMonth() !== internalCurrentDate.getMonth() ||
+      date.getFullYear() !== internalCurrentDate.getFullYear()
+    ) {
+      setInternalCurrentDate(date);
+
+      if (viewMode === 'weekly') {
+        onWeekChange?.(date);
+      } else {
+        onMonthChange?.(date);
+      }
+    }
+
     setInternalSelectedDate(date);
     onDateSelect?.(date);
   };

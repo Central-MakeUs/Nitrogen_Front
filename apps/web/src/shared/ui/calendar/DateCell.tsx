@@ -23,9 +23,7 @@ export const DateCell = ({
   onClick,
 }: DateCellProps) => {
   const handleClick = () => {
-    if (!isOutsideMonth && onClick) {
-      onClick(date);
-    }
+    onClick?.(date);
   };
 
   return (
