@@ -81,7 +81,6 @@ export const dateBadge = recipe({
     isOutsideMonth: {
       true: {
         color: vars.color.text.tertiary,
-        cursor: 'default',
       },
     },
   },
